@@ -4,6 +4,8 @@ import com.wsei.model.User;
 import com.wsei.model.UserNotFoundException;
 import com.wsei.model.UserRepository;
 import java.util.List;
+
+import com.wsei.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private final UserRepository repository;
+    private final UserService userService;
 
     @GetMapping("/users")
     public List<User> getUser(){
@@ -27,11 +30,11 @@ public class UserController {
 
     @PostMapping("/users")
     public User saveUser(@RequestBody User user){
-        return repository.save(user);
+        return userService.createUser(user);
     }
 
     @PutMapping("/users/{id}")
-    User replaceEmployee(@RequestBody User newUser, @PathVariable Long id) {
+    User replaceUser(@RequestBody User newUser, @PathVariable Long id) {
 
         return repository.findById(id)
                 .map(user -> {
