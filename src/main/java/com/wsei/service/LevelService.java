@@ -46,7 +46,7 @@ public class LevelService {
                     level.setName(newLevel.getName());
                     level.setCapacity(newLevel.getCapacity());
                     level.setWarehouse(newLevel.getWarehouse());
-                    return saveLevel(level);
+                    return repository.save(level);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

@@ -54,7 +54,7 @@ public class MovementService {
 //dopisac dla source i target
 
 
-                    return saveMovement(movement);
+                    return repository.save(movement);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

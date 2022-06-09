@@ -48,7 +48,7 @@ public class MovementElementService {
                     movementElement.setQuantity(newMovementElement.getQuantity());
                     movementElement.setWeight(newMovementElement.getWeight());
 //ddodac dla sourcei  target
-                    return saveMovementElement(movementElement);
+                    return repository.save(movementElement);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

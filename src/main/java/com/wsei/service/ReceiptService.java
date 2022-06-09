@@ -40,7 +40,7 @@ public class ReceiptService {
                     receipt.setWarehouse(newReceipt.getWarehouse());
                     receipt.setCustomer(newReceipt.getCustomer());
                     receipt.setDescription(newReceipt.getDescription());
-                    return saveReceipt(receipt);
+                    return repository.save(receipt);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

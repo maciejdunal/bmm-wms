@@ -47,7 +47,7 @@ public class PlaceService {
                     place.setName(newPlace.getName());
                     place.setCapacity(newPlace.getCapacity());
                     place.setWarehouse(newPlace.getWarehouse());
-                    return savePlace(place);
+                    return repository.save(place);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

@@ -51,7 +51,7 @@ public class ReleaseElementService {
                     releaseElement.setLocalization(newReleaseElement.getLocalization());
                     releaseElement.setWarehouse(newReleaseElement.getWarehouse());
 
-                    return saveReleaseElement(releaseElement);
+                    return repository.save(releaseElement);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

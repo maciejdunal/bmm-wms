@@ -41,7 +41,7 @@ public class CustomerContactPersonService {
                     customerContactPerson.setSurname(newCustomerContactPerson.getSurname());
                     customerContactPerson.setEmail(newCustomerContactPerson.getEmail());
                     customerContactPerson.setPhoneNumber(newCustomerContactPerson.getPhoneNumber());
-                    return saveCustomerContactPerson(customerContactPerson);
+                    return repository.save(customerContactPerson);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

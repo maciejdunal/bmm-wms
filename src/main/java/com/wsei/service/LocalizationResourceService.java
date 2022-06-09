@@ -45,7 +45,7 @@ public class LocalizationResourceService {
                     localizationResource.setQuantity(newLocalizationResource.getQuantity());
                     localizationResource.setPlace(newLocalizationResource.getPlace());
                     localizationResource.setWeight(newLocalizationResource.getWeight());
-                    return saveLocalizationResource(localizationResource);
+                    return repository.save(localizationResource);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

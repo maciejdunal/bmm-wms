@@ -45,7 +45,7 @@ public class ReleaseService {
                     release.setCustomer(newRelease.getCustomer());
                     release.setDescription(newRelease.getDescription());
 
-                    return saveRelease(release);
+                    return repository.save(release);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

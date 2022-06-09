@@ -50,7 +50,7 @@ public class ReceiptElementService {
                     receiptElement.setLocalization(newReceiptElement.getLocalization());
                     receiptElement.setWarehouse(newReceiptElement.getWarehouse());
 
-                    return saveReceiptElement(receiptElement);
+                    return repository.save(receiptElement);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }

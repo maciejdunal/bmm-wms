@@ -46,7 +46,7 @@ public class LocalizationService {
                     localization.setWarehouse(newLocalization.getWarehouse());
                     localization.setCapacity(newLocalization.getCapacity());
                     localization.setPlaceId(newLocalization.getPlaceId());
-                    return saveLocalization(localization);
+                    return repository.save(localization);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }
