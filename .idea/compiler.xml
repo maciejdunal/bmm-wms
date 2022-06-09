@@ -10,10 +10,16 @@
         <module name="bmm-wms" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="e2e-tests" target="17" />
+      <module name="e2e-tests2" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="bmm-wms" options="-parameters" />
+      <module name="e2e-tests" options="-parameters" />
+      <module name="e2e-tests2" options="-parameters" />
     </option>
   </component>
 </project>

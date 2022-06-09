@@ -4,20 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 
+@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Table(name="Users", schema = "UAM")
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String displayName;
 
+    @Email
+    @Size(max = 32)
+    private String username;
+    @Size(min = 6, max = 255)
+    private String password;
+    @Size(min = 2, max = 24)
+    private String name;
+    @Size(min = 2, max = 24)
+    private String surname;
+    @OneToOne
+    @JoinColumn(name="roleId")
+    private Role role;
 }
