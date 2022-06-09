@@ -5,25 +5,23 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wsei.controller.model.NewUserRequest;
+import com.wsei.controller.model.RoleUpdateRequest;
+import com.wsei.controller.model.UserResponse;
 import com.wsei.model.Role;
 import com.wsei.model.User;
-
-import java.io.IOException;
-import java.net.URI;
-import java.util.*;
-
 import com.wsei.service.UserServiceImpl;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
@@ -37,27 +35,41 @@ public class UserController {
 
     private final UserServiceImpl userService;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PreAuthorize("hasRole('Manager') or hasRole('User')")
-    @GetMapping("/users")
-    public ResponseEntity<List<User>> getUsers()
-    {
-    return ResponseEntity.ok().body(userService.getUsers());
+    private UserResponse maptoResponse(User user) {
+
+        Role role = user.getRole();
+
+        return UserResponse.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .name(user.getName())
+                .surname(user.getSurname())
+                .roleName(Objects.nonNull(role) ? role.getName() : null)
+                .build();
     }
 
+    @PreAuthorize("hasRole('Manager') or hasRole('User')")
+    @GetMapping("/users")
+    public List<UserResponse> getUsers(){
+        return userService.getUsers()
+                .stream()
+                .map(this::maptoResponse)
+//                .map(article -> maptoResponse(article))
+                .collect(Collectors.toList());
+    }
     @PreAuthorize("hasRole('Manager')")
     @GetMapping("/users/{id}")
-    public User getUser(@PathVariable Long id)
+    public UserResponse getUser(@PathVariable Long id)
     {
-    return userService.getUser(id);
+    return maptoResponse(userService.getUser(id));
     }
 
     @PreAuthorize("hasRole('Manager')")
     @PostMapping("/users")
-    public ResponseEntity<User> addUser(@Valid @RequestBody User user)
+    public UserResponse addUser(@Valid @RequestBody NewUserRequest request)
     {
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user").toUriString());
-        return ResponseEntity.created(uri).body(userService.saveUser(user));
+        User user = userService.saveUser(request);
+        return maptoResponse(user);
     }
 
     @PreAuthorize("hasRole('Manager')")
@@ -83,11 +95,14 @@ public class UserController {
 
     @PreAuthorize("hasRole('Manager')")
     @PutMapping("/roles/add-to-user")
-    public ResponseEntity<?> addRoleToUser(@Valid @RequestBody RoleToUserForm form)
-    {
-        userService.addRoleToUser(form.getUsername(), form.getRoleName());
-        return ResponseEntity.ok().build();
+    public UserResponse updateUserRole(@RequestBody RoleUpdateRequest request){
+        User user = userService.assignRole(request);
+
+        return maptoResponse(user);
     }
+
+
+
     @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
     @GetMapping("/tokens/refresh")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -127,10 +142,4 @@ public class UserController {
         }
     }
 
-}
-
-@Data
-class RoleToUserForm {
-    private String username;
-    private String roleName;
 }

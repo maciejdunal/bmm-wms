@@ -1,5 +1,8 @@
 package com.wsei.service;
 
+import com.wsei.controller.model.NewUserRequest;
+import com.wsei.controller.model.RoleUpdateRequest;
+import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.Role;
 import com.wsei.model.User;
@@ -45,11 +48,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
+    public User saveUser(NewUserRequest newUserRequest) {
+        log.info("Saving new user {} to the database", newUserRequest.getName());
+        userRepository.findByUsername(newUserRequest.getUsername());
+        User user = new User();
 
-    @Override
-    public User saveUser(User user) {
-        log.info("Saving new user {} to the database", user.getName());
-        user.setPassword(passwordEncoder.encode((user.getPassword())));
+        user.setUsername(newUserRequest.getUsername());
+//        newUserRequest.setPassword(passwordEncoder.encode((newUserRequest.getPassword())));
+        user.setPassword(passwordEncoder.encode((newUserRequest.getPassword())));
+        user.setName(newUserRequest.getName());
+        user.setSurname(newUserRequest.getSurname());
         Role defaultRole = roleRepository.getById(1L);
         user.setRole(defaultRole);
         return userRepository.save(user);
@@ -60,11 +68,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findById(id)
                 .map(user -> {
                     user.setUsername(newUser.getUsername());
-                    user.setPassword(newUser.getPassword());
+                    user.setPassword(passwordEncoder.encode((newUser.getPassword())));
                     user.setName(newUser.getName());
                     user.setSurname(newUser.getSurname());
                     user.setRole(newUser.getRole());
-                    return saveUser(user);
+                    return userRepository.save(user);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }
@@ -74,17 +82,19 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepository.deleteById(id);
     }
 
-    @Override
+    //nie ma juz
+/*    @Override
     public Role saveRole(Role role) {
         return roleRepository.save(role);
-    }
+    }*/
 
-    @Override
-    public void addRoleToUser(String username, String roleName) {
-    User user = userRepository.findByUsername(username);
-    Role role = roleRepository.findByName(roleName);
+
+    public User assignRole(RoleUpdateRequest request) {
+    User user = userRepository.findByUsername(request.getUsername());
+    Role role = roleRepository.findByName(request.getRoleName());
     user.setRole(role);
     userRepository.save(user);
+    return userRepository.save(user);
     }
 
     @Override

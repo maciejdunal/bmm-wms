@@ -26,7 +26,22 @@ import java.util.stream.Collectors;
 public class ArticleController {
 
     private final ArticleService articleService;
-    private final UnitService unitService;
+
+    private ArticleResponse maptoResponse(Article article) {
+
+        Unit unit = article.getUnit();
+
+        return ArticleResponse.builder()
+                .id(article.getId())
+                .name(article.getName())
+                .articleCode(article.getArticleCode())
+                .weight(article.getWeight())
+                .creationDate(article.getCreationDate())
+                .modificationDate(article.getModificationDate())
+                .userId(article.getUser().getId())
+                .unitName(Objects.nonNull(unit) ? unit.getName() : null)
+                .build();
+    }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
     @GetMapping("/articles")
@@ -43,22 +58,6 @@ public class ArticleController {
     @GetMapping("/articles/{id}")
     public ArticleResponse getItem(@PathVariable Long id){
         return maptoResponse(articleService.getArticle(id));
-    }
-
-    private ArticleResponse maptoResponse(Article article) {
-
-        Unit unit = article.getUnit();
-
-        return ArticleResponse.builder()
-                .id(article.getId())
-                .name(article.getName())
-                .articleCode(article.getArticleCode())
-                .weight(article.getWeight())
-                .creationDate(article.getCreationDate())
-                .modificationDate(article.getModificationDate())
-                .userId(article.getUser().getId())
-                .unitName(Objects.nonNull(unit) ? unit.getName() : null)
-                .build();
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
