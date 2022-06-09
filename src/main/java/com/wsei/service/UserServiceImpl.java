@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.save(user);
     }
 
-    public User updateUser(User newUser, Long id)
+    public User updateUser(NewUserRequest newUser, Long id)
     {
         return userRepository.findById(id)
                 .map(user -> {
@@ -71,7 +71,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                     user.setPassword(passwordEncoder.encode((newUser.getPassword())));
                     user.setName(newUser.getName());
                     user.setSurname(newUser.getSurname());
-                    user.setRole(newUser.getRole());
                     return userRepository.save(user);
                 })
                 .orElseThrow(() -> new NotFoundException(id));

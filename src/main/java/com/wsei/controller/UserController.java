@@ -74,7 +74,7 @@ public class UserController {
 
     @PreAuthorize("hasRole('Manager')")
     @PutMapping("/users/{id}")
-    public User updateUser(@RequestBody User newUser, @PathVariable Long id)
+    public User updateUser(@RequestBody NewUserRequest newUser, @PathVariable Long id)
     {
         return userService.updateUser(newUser, id);
     }
