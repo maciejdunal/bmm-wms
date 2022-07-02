@@ -18,7 +18,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name="Articles", schema = "Products")
-public class Article {
+public class  Article {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,10 +38,7 @@ public class Article {
     private String articleCode;
 
     private LocalDateTime creationDate;
-
     private LocalDateTime modificationDate;
-
-
 
     @OneToOne
     @JoinColumn(name="userId")

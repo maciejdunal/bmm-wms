@@ -23,16 +23,17 @@ public class LocalizationResource {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="warehouseId")
     private Warehouse warehouse;
     
     private Long quantity;
+/*    private String articleCode;*/
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="articleId")
     private Article article;
     @OneToOne
-    @JoinColumn(name="id")
-    private Place place;
+    @JoinColumn(name="localizationId")
+    private Localization localization;
     @Digits(integer=6, fraction=2)
     private BigDecimal weight;
 }

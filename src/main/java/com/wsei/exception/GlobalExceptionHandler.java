@@ -20,6 +20,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleNotFoundException(NotFoundException e){
         return new ResponseEntity<>("Cannot found Entity with id" + e.getId(), HttpStatus.NOT_FOUND);
     }
+
+/*    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<String> handleResourceNotFoundException(NotFoundException e){
+        return new ResponseEntity<>("Cannot found Article with articleCode" + e.getMessage(), HttpStatus.NOT_FOUND);
+    }*/
 /*    @ExceptionHandler(RuntimeException.class)
     public void handleNotFoundException2(RuntimeException e){
         log.warn("exception", e);

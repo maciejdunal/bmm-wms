@@ -7,15 +7,10 @@ import com.wsei.model.Article;
 
 import com.wsei.model.Unit;
 import com.wsei.service.ArticleService;
-import com.wsei.service.UnitService;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -27,7 +22,7 @@ public class ArticleController {
 
     private final ArticleService articleService;
 
-    private ArticleResponse maptoResponse(Article article) {
+    private ArticleResponse mapToResponse(Article article) {
 
         Unit unit = article.getUnit();
 
@@ -49,28 +44,28 @@ public class ArticleController {
 
         return articleService.getArticles()
                 .stream()
-                .map(this::maptoResponse)
-//                .map(article -> maptoResponse(article))
+                .map(this::mapToResponse)
+//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
     @GetMapping("/articles/{id}")
-    public ArticleResponse getItem(@PathVariable Long id){
-        return maptoResponse(articleService.getArticle(id));
+    public ArticleResponse getArticle(@PathVariable Long id){
+        return mapToResponse(articleService.getArticle(id));
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
     @PostMapping("/articles")
-    public ArticleResponse saveItem(@RequestBody NewArticleRequest request){
+    public ArticleResponse saveArticle(@RequestBody NewArticleRequest request){
         Article article = articleService.saveArticle(request);
-        return maptoResponse(article);
+        return mapToResponse(article);
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
     @PutMapping("/articles/{id}")
-    Article replaceItem(@RequestBody Article newArticle, @PathVariable Long id) {
-        return articleService.updateArticle(newArticle, id);
+    ArticleResponse updateArticle(@RequestBody NewArticleRequest newArticle, @PathVariable Long id) {
+        return mapToResponse(articleService.updateArticle(newArticle, id));
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
@@ -85,7 +80,7 @@ public class ArticleController {
 
         Article article = articleService.assignUnit(request);
 
-        return maptoResponse(article);
+        return mapToResponse(article);
     }
 
 }

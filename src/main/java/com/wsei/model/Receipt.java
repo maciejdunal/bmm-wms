@@ -5,12 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-
-import java.util.Date;
-
-import static javax.persistence.GenerationType.AUTO;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -22,27 +19,24 @@ public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+    private String operationType = "Receipt";
+
+    private String documentNumber = "r" + UUID.randomUUID().toString() + "t";
+    private LocalDateTime creationDate;
+    private LocalDateTime modificationDate;
+
     @OneToOne
-    @JoinColumn(name="id")
-    private OperationsType operationsType;
-    
-    @Size(max = 15)
-    private String documentNumber;
-    private Date creationDate = new Date();
-    private Date modificationDate = new Date();
-    @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="warehouseId")
     private Warehouse warehouse;
     
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="customerId")
     private Customer customer;
     @Size(max = 50)
     private String description;
     
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="userId")
     private User user;
 
 }

@@ -1,13 +1,20 @@
 package com.wsei.service;
 
+import com.wsei.controller.model.ArticleUpdateRequest;
+import com.wsei.controller.model.LocalizationUpdateRequest;
+import com.wsei.controller.model.OperationUpdateRequest;
+import com.wsei.controller.model.WarehouseUpdateRequest;
 import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
-import com.wsei.model.ReleaseElement;
-import com.wsei.repository.ReleaseElementRepository;
+import com.wsei.model.*;
+import com.wsei.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -16,6 +23,11 @@ public class ReleaseElementService {
 
 
     private final ReleaseElementRepository repository;
+    private final UserRepository userRepository;
+    private final WarehouseRepository warehouseRepository;
+    private final LocalizationRepository localizationRepository;
+    private final ArticleRepository articleRepository;
+    private final ReleaseRepository movementRepository;
 
 
     public List<ReleaseElement> getReleaseElements()
@@ -30,10 +42,13 @@ public class ReleaseElementService {
 
     public ReleaseElement saveReleaseElement(ReleaseElement releaseElement)
     {
-        repository.findByArticle(releaseElement.getArticle())
-                .ifPresent(existingReleaseElement -> {
-                    throw new AlreadyExistException();
-                });
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object username = authentication.getPrincipal();
+        User currentUser = userRepository.findByUsername((String) username);
+        LocalDateTime now = LocalDateTime.now();
+
+        releaseElement.setUser(currentUser);
+        releaseElement.setCreationDate(now);
 
         return repository.save(releaseElement);
     }
@@ -42,15 +57,8 @@ public class ReleaseElementService {
     {
         return repository.findById(id)
                 .map (releaseElement -> {
-                    releaseElement.setRelease(newReleaseElement.getRelease());
-                    releaseElement.setOperationsType(newReleaseElement.getOperationsType());
-                    releaseElement.setArticle(newReleaseElement.getArticle());
-                    releaseElement.setUserId(newReleaseElement.getUserId());
                     releaseElement.setQuantity(newReleaseElement.getQuantity());
-                    releaseElement.setWeight(newReleaseElement.getWeight());
-                    releaseElement.setLocalization(newReleaseElement.getLocalization());
-                    releaseElement.setWarehouse(newReleaseElement.getWarehouse());
-
+                    releaseElement.setWeight(newReleaseElement.getWeight());;
                     return repository.save(releaseElement);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
@@ -59,5 +67,46 @@ public class ReleaseElementService {
     public void deleteReleaseElement(@PathVariable Long id)
     {
         repository.deleteById(id);
+    }
+
+    public ReleaseElement assignOperation(OperationUpdateRequest request) {
+        ReleaseElement releaseElement = repository.findById(request.getResourceId())
+                .orElseThrow(() -> new NotFoundException(null));
+        Release release = movementRepository.findById(request.getOperationId())
+                .orElseThrow(() -> new NotFoundException(null));
+
+        releaseElement.setRelease(release);
+        return repository.save(releaseElement);
+    }
+
+    public ReleaseElement assignArticle(ArticleUpdateRequest request) {
+        ReleaseElement releaseElement = repository.findById(request.getResourceId())
+                .orElseThrow(() -> new NotFoundException(null));
+        Article article = articleRepository.findById(request.getArticleId())
+                .orElseThrow(() -> new NotFoundException(null));
+
+        releaseElement.setArticle(article);
+        return repository.save(releaseElement);
+    }
+
+    public ReleaseElement assignWarehouse(WarehouseUpdateRequest request) {
+        ReleaseElement releaseElement = repository.findById(request.getResourceId())
+                .orElseThrow(() -> new NotFoundException(null));
+        Warehouse warehouse = warehouseRepository.findById(request.getWarehouseId())
+                .orElseThrow(() -> new NotFoundException(null));
+
+        releaseElement.setWarehouse(warehouse);
+
+        return repository.save(releaseElement);
+    }
+
+    public ReleaseElement assignLocalization(LocalizationUpdateRequest request) {
+        ReleaseElement releaseElement = repository.findById(request.getResourceId())
+                .orElseThrow(() -> new NotFoundException(null));
+        Localization localization = localizationRepository.findById(request.getLocalizationId())
+                .orElseThrow(() -> new NotFoundException(null));
+
+        releaseElement.setLocalization(localization);
+        return repository.save(releaseElement);
     }
 }

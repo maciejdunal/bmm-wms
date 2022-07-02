@@ -29,9 +29,9 @@ public class ArticleResponse {
 
     @Size(max = 10)
     private String articleCode;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private LocalDateTime creationDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private LocalDateTime modificationDate;
 
     private Long userId;

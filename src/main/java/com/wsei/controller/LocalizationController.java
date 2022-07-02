@@ -1,6 +1,7 @@
 package com.wsei.controller;
 
-import com.wsei.model.Localization;
+import com.wsei.controller.model.*;
+import com.wsei.model.*;
 import com.wsei.service.LocalizationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
@@ -17,31 +20,52 @@ public class LocalizationController {
 
     private final LocalizationService localizationService;
 
+    private LocalizationResponse mapToResponse(Localization localization) {
+
+        Warehouse warehouse = localization.getWarehouse();
+        Place place = localization.getPlace();
+
+        return LocalizationResponse.builder()
+                .id(localization.getId())
+                .name(localization.getName())
+                .displayName(localization.getDisplayName())
+                .capacity(localization.getCapacity())
+                .placeId(Objects.nonNull(place) ? place.getId() : null)
+                .warehouseId(Objects.nonNull(warehouse) ? warehouse.getId() : null)
+                .build();
+    }
+
     @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
     @GetMapping("/localizations")
-    public ResponseEntity<List<Localization>> getLocalizations() {
-        return ResponseEntity.ok().body(localizationService.getLocalizations());
+    public List<LocalizationResponse> getLocalizations() {
+        return localizationService.getLocalizations()
+                .stream()
+                .map(this::mapToResponse)
+//                .map(row -> mapToResponse(article))
+                .collect(Collectors.toList());
+
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
     @GetMapping("/localizations/{id}")
-    public Localization getLocalization(@PathVariable Long id)
+    public LocalizationResponse getLocalization(@PathVariable Long id)
     {
-        return localizationService.getLocalization(id);
+        return mapToResponse(localizationService.getLocalization(id));
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
     @PostMapping("/localizations")
-    public Localization addLocalization(@Valid @RequestBody Localization localization)
+    public LocalizationResponse addLocalization(@Valid @RequestBody NewLocalizationRequest request)
     {
-        return localizationService.saveLocalization(localization);
+        Localization localization = localizationService.saveLocalization(request);
+        return mapToResponse(localization);
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
     @PutMapping("/localizations/{id}")
-    public Localization updateLocalization(@RequestBody Localization newLocalization, @PathVariable Long id)
+    public LocalizationResponse updateLocalization(@RequestBody NewLocalizationRequest newLocalization, @PathVariable Long id)
     {
-        return localizationService.updateLocalization(newLocalization, id);
+        return mapToResponse(localizationService.updateLocalization(newLocalization, id));
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
@@ -49,5 +73,21 @@ public class LocalizationController {
     void deleteLocalization(@PathVariable Long id)
     {
         localizationService.deleteLocalization(id);
+    }
+
+    @PreAuthorize("hasRole('Manager') or hasRole('User')")
+    @PutMapping("/localizations/add-warehouse-to-localization")
+    public LocalizationResponse updateLocalizationWarehouse(@RequestBody WarehouseUpdateRequest request){
+        Localization localization = localizationService.assignWarehouse(request);
+
+        return mapToResponse(localization);
+    }
+
+    @PreAuthorize("hasRole('Manager') or hasRole('User')")
+    @PutMapping("/localizations/add-place-to-localization")
+    public LocalizationResponse updateLevelRow(@RequestBody PlaceUpdateRequest request){
+        Localization localization = localizationService.assignPlace(request);
+
+        return mapToResponse(localization);
     }
 }

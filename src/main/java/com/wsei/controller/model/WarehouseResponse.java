@@ -23,9 +23,9 @@ public class WarehouseResponse {
     private String name;
     @Size(max = 50)
     private String displayName;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private LocalDateTime creationDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private LocalDateTime modificationDate;
     @Digits(integer=8, fraction=2)
     private BigDecimal capacity;

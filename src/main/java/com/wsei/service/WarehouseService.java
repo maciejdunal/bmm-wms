@@ -50,7 +50,7 @@ public class WarehouseService {
         return repository.save(warehouse);
     }
 
-    public Warehouse updateWarehouse(@RequestBody Warehouse newWarehouse, @PathVariable Long id)
+    public Warehouse updateWarehouse(@RequestBody NewWarehouseRequest newWarehouse, @PathVariable Long id)
     {
 
         return repository.findById(id)

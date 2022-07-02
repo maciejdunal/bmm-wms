@@ -6,11 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
-import java.util.Date;
-
-import static javax.persistence.GenerationType.AUTO;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -22,33 +19,35 @@ public class MovementElement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name="operationId")
+    private Movement movement;
+    private String operationType = "Movement";
+
     @OneToOne
-    @JoinColumn(name="id")
-    private Receipt receipt;
-    @OneToOne
-    @JoinColumn(name="id")
-    private OperationsType operationsType;
-    @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="articleId")
     private Article article;
-    
-    private Long userId;
-    
+
+    @OneToOne
+    @JoinColumn(name="userId")
+    private User user;
+
     private Long quantity;
     
     @Digits(integer=6, fraction=2)
     private BigDecimal weight;
     @OneToOne
-    @JoinColumn(name="localizationId",insertable=false, updatable=false)
+    @JoinColumn(name="sourceLocalizationId")
     private Localization sourceLocalization;
     @OneToOne
-    @JoinColumn(name="localizationId",insertable=false, updatable=false)
+    @JoinColumn(name="targetLocalizationId")
     private Localization targetLocalization;
-    private Date creationDate;
-    @OneToOne
-    @JoinColumn(name="targetWarehouseId")
-    private Warehouse targetWarehouse;
+    private LocalDateTime creationDate;
     @OneToOne
     @JoinColumn(name="sourceWarehouseId")
     private Warehouse sourceWarehouse;
+    @OneToOne
+    @JoinColumn(name="targetWarehouseId")
+    private Warehouse targetWarehouse;
 }

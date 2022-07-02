@@ -48,14 +48,12 @@ public class RackService {
         return repository.save(rack);
     }
 
-    public Rack updateRack(@RequestBody Rack newRack, @PathVariable Long id)
+    public Rack updateRack(@RequestBody NewRackRequest newRack, @PathVariable Long id)
     {
         return repository.findById(id)
                 .map (rack -> {
-                    rack.setRow(newRack.getRow());
                     rack.setName(newRack.getName());
                     rack.setCapacity(newRack.getCapacity());
-                    rack.setWarehouse(newRack.getWarehouse());
                     return repository.save(rack);
                 })
                 .orElseThrow(() -> new NotFoundException(id));

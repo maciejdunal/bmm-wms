@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    volumes:
+      - ~/apps/mssql/data:/usr/src/app/
+    entrypoint: ./usr/src/app/entrypoint.sh
+    environment:
+      - MSSQL_PID=Express
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong**Password!
+  check-mssql-started:
+    image: jwilder/dockerize:0.6.1
+    depends_on:
+      - mssql
+    command: 'dockerize -wait=tcp://mssql:1433'
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile-WMS
+    depends_on:
+      - check-mssql-started
+    image: bmm-wms
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:sqlserver://mssql:1433;Database=WMSDatabase;Trusted_Connection=True",
+        "spring.datasource.username":"SA",
+        "spring.datasource.password":"yourStrong**Password!"
+      }'
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+

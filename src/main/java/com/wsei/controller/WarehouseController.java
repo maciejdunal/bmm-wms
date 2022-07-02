@@ -24,7 +24,7 @@ public class WarehouseController {
 
     private final WarehouseService warehouseService;
 
-    private WarehouseResponse maptoResponse(Warehouse warehouse) {
+    private WarehouseResponse mapToResponse(Warehouse warehouse) {
 
         return WarehouseResponse.builder()
                 .id(warehouse.getId())
@@ -42,8 +42,8 @@ public class WarehouseController {
 
         return warehouseService.getWarehouses()
                 .stream()
-                .map(this::maptoResponse)
-//                .map(warehouse -> maptoResponse(article))
+                .map(this::mapToResponse)
+//                .map(warehouse -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 
@@ -51,7 +51,7 @@ public class WarehouseController {
     @GetMapping("/warehouses/{id}")
     public WarehouseResponse getWarehouse(@PathVariable Long id)
     {
-        return maptoResponse(warehouseService.getWarehouse(id));
+        return mapToResponse(warehouseService.getWarehouse(id));
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
@@ -59,14 +59,14 @@ public class WarehouseController {
     public WarehouseResponse addWarehouse(@RequestBody NewWarehouseRequest request)
     {
         Warehouse warehouse = warehouseService.saveWarehouse(request);
-        return maptoResponse(warehouse);
+        return mapToResponse(warehouse);
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
     @PutMapping("/warehouses/{id}")
-    public WarehouseResponse updateWarehouse(@RequestBody Warehouse newWarehouse, @PathVariable Long id)
+    public WarehouseResponse updateWarehouse(@RequestBody NewWarehouseRequest newWarehouse, @PathVariable Long id)
     {
-        return maptoResponse(warehouseService.updateWarehouse(newWarehouse, id));
+        return mapToResponse(warehouseService.updateWarehouse(newWarehouse, id));
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")

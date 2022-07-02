@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.AUTO;
@@ -23,26 +24,31 @@ public class ReleaseElement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="operationId")
     private Release release;
+
+    private String operationType = "Release";
+
     @OneToOne
-    @JoinColumn(name="id")
-    private OperationsType operationsType;
-    @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="articleId")
     private Article article;
-    
-    private Long userId;
-    
+
+    @OneToOne
+    @JoinColumn(name="userId")
+    private User user;
+
     private Long quantity;
-    
+
     @Digits(integer=6, fraction=2)
     private BigDecimal weight;
+
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="localizationId")
     private Localization localization;
-    private Date creationDate;
+
+    private LocalDateTime creationDate;
+
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="warehouseId")
     private Warehouse warehouse;
 }

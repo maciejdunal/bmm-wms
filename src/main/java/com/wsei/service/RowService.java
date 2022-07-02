@@ -47,13 +47,12 @@ public class RowService {
         return repository.save(row);
     }
 
-    public Row updateRow(@RequestBody Row newRow, @PathVariable Long id)
+    public Row updateRow(@RequestBody NewRowRequest newRow, @PathVariable Long id)
     {
         return repository.findById(id)
                 .map (row -> {
                     row.setName(newRow.getName());
                     row.setCapacity(newRow.getCapacity());
-                    row.setWarehouse(newRow.getWarehouse());
                     return repository.save(row);
                 })
                 .orElseThrow(() -> new NotFoundException(id));

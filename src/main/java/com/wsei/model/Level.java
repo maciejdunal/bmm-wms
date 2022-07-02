@@ -23,10 +23,10 @@ public class Level {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="rowId")
     private Row row;
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="rackId")
     private Rack rack;
     
     @Size(max = 1)
@@ -34,6 +34,6 @@ public class Level {
     @Digits(integer=8, fraction=2)
     private BigDecimal capacity;
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="warehouseId")
     private Warehouse warehouse;
 }

@@ -27,10 +27,11 @@ public class Localization {
     private String displayName;
     
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="warehouseId")
     private Warehouse warehouse;
     
     private Long capacity;
-    
-    private Long placeId;
+    @OneToOne
+    @JoinColumn(name="placeId")
+    private Place place ;
 }

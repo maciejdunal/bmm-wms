@@ -60,7 +60,7 @@ public class ArticleService {
         return repository.save(article);
     }
     
-    public Article updateArticle(@RequestBody Article newArticle, @PathVariable Long id) {
+    public Article updateArticle(@RequestBody NewArticleRequest newArticle, @PathVariable Long id) {
         return repository.findById(id)
                 .map(article -> {
                     article.setName(newArticle.getName());
@@ -81,6 +81,7 @@ public class ArticleService {
                 .orElseThrow(() -> new NotFoundException(null));
         Unit unit = unitRepository.findByName(request.getUnitName())
                 .orElseThrow(() -> new NotFoundException(null));
+        article.setModificationDate(LocalDateTime.now());
         article.setUnit(unit);
         return repository.save(article);
 

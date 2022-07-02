@@ -29,8 +29,8 @@ public class RackController {
     public List<RackResponse> getRacks() {
         return rackService.getRacks()
                 .stream()
-                .map(this::maptoResponse)
-//                .map(rack -> maptoResponse(article))
+                .map(this::mapToResponse)
+//                .map(rack -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 
@@ -38,10 +38,10 @@ public class RackController {
     @GetMapping("/racks/{id}")
     public RackResponse getRack(@PathVariable Long id)
     {
-        return maptoResponse(rackService.getRack(id));
+        return mapToResponse(rackService.getRack(id));
     }
 
-    private RackResponse maptoResponse(Rack rack) {
+    private RackResponse mapToResponse(Rack rack) {
 
         Warehouse warehouse = rack.getWarehouse();
         Row row = rack.getRow();
@@ -60,14 +60,15 @@ public class RackController {
     public RackResponse addRack(@Valid @RequestBody NewRackRequest request)
     {
         Rack rack = rackService.saveRack(request);
-        return maptoResponse(rack);
+        return mapToResponse(rack);
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
     @PutMapping("/racks/{id}")
-    public Rack updateRack(@RequestBody Rack newRack, @PathVariable Long id)
+    public RackResponse updateRack(@RequestBody NewRackRequest newRack, @PathVariable Long id)
     {
-        return rackService.updateRack(newRack, id);
+        return mapToResponse(rackService.updateRack(newRack, id));
+/*        return rackService.updateRack(newRack, id);*/
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
@@ -82,7 +83,7 @@ public class RackController {
     public RackResponse updateRowWarehouse(@RequestBody WarehouseUpdateRequest request){
         Rack rack = rackService.assignWarehouse(request);
 
-        return maptoResponse(rack);
+        return mapToResponse(rack);
     }
 
     @PreAuthorize("hasRole('Manager') or hasRole('User')")
@@ -90,6 +91,6 @@ public class RackController {
     public RackResponse updateRackRow(@RequestBody RowUpdateRequest request){
         Rack rack = rackService.assignRow(request);
 
-        return maptoResponse(rack);
+        return mapToResponse(rack);
     }
 }

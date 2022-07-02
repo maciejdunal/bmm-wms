@@ -35,7 +35,7 @@ public class UserController {
 
     private final UserServiceImpl userService;
 
-    private UserResponse maptoResponse(User user) {
+    private UserResponse mapToResponse(User user) {
 
         Role role = user.getRole();
 
@@ -53,15 +53,15 @@ public class UserController {
     public List<UserResponse> getUsers(){
         return userService.getUsers()
                 .stream()
-                .map(this::maptoResponse)
-//                .map(article -> maptoResponse(article))
+                .map(this::mapToResponse)
+//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
     @PreAuthorize("hasRole('Manager')")
     @GetMapping("/users/{id}")
     public UserResponse getUser(@PathVariable Long id)
     {
-    return maptoResponse(userService.getUser(id));
+    return mapToResponse(userService.getUser(id));
     }
 
     @PreAuthorize("hasRole('Manager')")
@@ -69,14 +69,14 @@ public class UserController {
     public UserResponse addUser(@Valid @RequestBody NewUserRequest request)
     {
         User user = userService.saveUser(request);
-        return maptoResponse(user);
+        return mapToResponse(user);
     }
 
     @PreAuthorize("hasRole('Manager')")
     @PutMapping("/users/{id}")
-    public User updateUser(@RequestBody NewUserRequest newUser, @PathVariable Long id)
+    public UserResponse updateUser(@RequestBody NewUserRequest newUser, @PathVariable Long id)
     {
-        return userService.updateUser(newUser, id);
+        return mapToResponse(userService.updateUser(newUser, id));
     }
 
     @PreAuthorize("hasRole('Manager')")
@@ -98,7 +98,7 @@ public class UserController {
     public UserResponse updateUserRole(@RequestBody RoleUpdateRequest request){
         User user = userService.assignRole(request);
 
-        return maptoResponse(user);
+        return mapToResponse(user);
     }
 
 

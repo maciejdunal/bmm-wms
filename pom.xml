@@ -11,10 +11,10 @@
     </parent>
     <groupId>com.wsei</groupId>
     <artifactId>bmm-wms</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.10</version>
     <description>Warehouse Management System</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
