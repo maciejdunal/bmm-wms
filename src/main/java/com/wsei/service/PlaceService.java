@@ -30,10 +30,10 @@ public class PlaceService {
 
     public Place savePlace(NewPlaceRequest newPlaceRequest)
     {
-        repository.findByName(newPlaceRequest.getName())
+/*        repository.findByName(newPlaceRequest.getName())
                 .ifPresent(existingPlace -> {
                     throw new AlreadyExistException();
-                });
+                });*/
         Place place = new Place();
         place.setName(newPlaceRequest.getName());
         place.setCapacity(newPlaceRequest.getCapacity());

@@ -37,10 +37,10 @@ public class RackService {
 
     public Rack saveRack(NewRackRequest newRackRequest)
     {
-        repository.findByName(newRackRequest.getName())
+/*        repository.findByName(newRackRequest.getName())
                 .ifPresent(existingRack -> {
                     throw new AlreadyExistException();
-                });
+                });*/
 
         Rack rack = new Rack();
         rack.setName(newRackRequest.getName());

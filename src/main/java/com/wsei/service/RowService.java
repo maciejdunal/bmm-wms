@@ -36,10 +36,10 @@ public class RowService {
 
     public Row saveRow(NewRowRequest newRowRequest)
     {
-        repository.findByName(newRowRequest.getName())
+/*        repository.findByName(newRowRequest.getName())
                 .ifPresent(existingRow -> {
                     throw new AlreadyExistException();
-                });
+                });*/
 
         Row row = new Row();
         row.setName(newRowRequest.getName());

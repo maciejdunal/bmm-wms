@@ -39,10 +39,10 @@ public class LevelService {
 
     public Level saveLevel(NewLevelRequest newLevelRequest)
     {
-        repository.findByName(newLevelRequest.getName())
+/*        repository.findByName(newLevelRequest.getName())
                 .ifPresent(existingLevel -> {
                     throw new AlreadyExistException();
-                });
+                });*/
         Level level = new Level();
         level.setName(newLevelRequest.getName());
         level.setCapacity(newLevelRequest.getCapacity());
