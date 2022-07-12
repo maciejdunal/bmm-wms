@@ -25,6 +25,10 @@ public class LocalizationService {
     {
         return repository.findAll();
     }
+    public List<Localization> getLocalizationsByWarehouseId(@PathVariable Long warehouseId)
+    {
+        return repository.findAllByWarehouseId(warehouseId);
+    }
     public Localization getLocalization(@PathVariable Long id)
     {
         return repository.findById(id)
@@ -70,7 +74,8 @@ public class LocalizationService {
                 .orElseThrow(() -> new NotFoundException(null));
         Warehouse warehouse = warehouseRepository.findById(request.getWarehouseId())
                 .orElseThrow(() -> new NotFoundException(null));
-        localization.setWarehouse(warehouse);
+        localization.setWarehouseId(request.getWarehouseId());
+/*        localization.setWarehouse(warehouse);*/
         return repository.save(localization);
     }
 

@@ -33,6 +33,4 @@ public class OperationsAuditResponse {
     private Long customerId;
     @JsonFormat(pattern="yyyy-MM-dd HH:mm")
     private LocalDateTime creationDate;
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm")
-    private LocalDateTime modificationDate;
 }

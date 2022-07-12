@@ -21,13 +21,14 @@ public class ReceiptElementController {
 
     private ReceiptElementResponse mapToResponse(ReceiptElement receiptElement) {
 
-        Receipt operation = receiptElement.getReceipt();
+/*        Receipt operation = receiptElement.getReceipt();*/
         Warehouse warehouse = receiptElement.getWarehouse();
         Article article= receiptElement.getArticle();
         Localization localization = receiptElement.getLocalization();
         return ReceiptElementResponse.builder()
                 .id(receiptElement.getId())
-                .operationId(Objects.nonNull(operation) ? operation.getId() : null)
+/*                .operationId(Objects.nonNull(operation) ? operation.getId() : null)*/
+                .operationId(receiptElement.getOperationId())
                 .operationType(receiptElement.getOperationType())
                 .articleId(Objects.nonNull(article) ? article.getId() : null)
                 .userId(receiptElement.getUser().getId())
@@ -44,6 +45,16 @@ public class ReceiptElementController {
     @GetMapping("/receiptElements")
     public List<ReceiptElementResponse> getReceiptElements() {
         return receiptElementService.getReceiptElements()
+                .stream()
+                .map(this::mapToResponse)
+//                .map(article -> mapToResponse(article))
+                .collect(Collectors.toList());
+    }
+
+    @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
+    @GetMapping("/receiptElements/operationId/{operationId}")
+    public List<ReceiptElementResponse> getReceiptElementsByOperationId(@PathVariable Long operationId) {
+        return receiptElementService.getReceiptElementsByOperationId(operationId)
                 .stream()
                 .map(this::mapToResponse)
 //                .map(article -> mapToResponse(article))

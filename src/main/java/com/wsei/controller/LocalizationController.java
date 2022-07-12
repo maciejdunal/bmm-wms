@@ -22,7 +22,7 @@ public class LocalizationController {
 
     private LocalizationResponse mapToResponse(Localization localization) {
 
-        Warehouse warehouse = localization.getWarehouse();
+/*        Warehouse warehouse = localization.getWarehouse();*/
         Place place = localization.getPlace();
 
         return LocalizationResponse.builder()
@@ -31,7 +31,8 @@ public class LocalizationController {
                 .displayName(localization.getDisplayName())
                 .capacity(localization.getCapacity())
                 .placeId(Objects.nonNull(place) ? place.getId() : null)
-                .warehouseId(Objects.nonNull(warehouse) ? warehouse.getId() : null)
+                .warehouseId(localization.getWarehouseId())
+/*                .warehouseId(Objects.nonNull(warehouse) ? warehouse.getId() : null)*/
                 .build();
     }
 
@@ -39,6 +40,17 @@ public class LocalizationController {
     @GetMapping("/localizations")
     public List<LocalizationResponse> getLocalizations() {
         return localizationService.getLocalizations()
+                .stream()
+                .map(this::mapToResponse)
+//                .map(row -> mapToResponse(article))
+                .collect(Collectors.toList());
+
+    }
+
+    @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
+    @GetMapping("/localizations/warehouseId/{warehouseId}")
+    public List<LocalizationResponse> getLocalizationsByWarehouseId(@PathVariable Long warehouseId) {
+        return localizationService.getLocalizationsByWarehouseId(warehouseId)
                 .stream()
                 .map(this::mapToResponse)
 //                .map(row -> mapToResponse(article))

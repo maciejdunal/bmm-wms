@@ -21,7 +21,7 @@ public class MovementElementController {
 
     private MovementElementResponse mapToResponse(MovementElement movementElement) {
 
-        Movement operation = movementElement.getMovement();
+/*        Movement operation = movementElement.getMovement();*/
         Warehouse sourceWarehouse = movementElement.getSourceWarehouse();
         Warehouse targetWarehouse = movementElement.getTargetWarehouse();
         Article article= movementElement.getArticle();
@@ -29,7 +29,8 @@ public class MovementElementController {
         Localization targetLocalization = movementElement.getTargetLocalization();
         return MovementElementResponse.builder()
                 .id(movementElement.getId())
-                .operationId(Objects.nonNull(operation) ? operation.getId() : null)
+/*                .operationId(Objects.nonNull(operation) ? operation.getId() : null)*/
+                .operationId(movementElement.getOperationId())
                 .operationType(movementElement.getOperationType())
                 .articleId(Objects.nonNull(article) ? article.getId() : null)
                 .userId(movementElement.getUser().getId())
@@ -49,6 +50,16 @@ public class MovementElementController {
     @GetMapping("/movementElements")
     public List<MovementElementResponse> getMovementElements(){
         return movementElementService.getMovementElements()
+                .stream()
+                .map(this::mapToResponse)
+//                .map(article -> mapToResponse(article))
+                .collect(Collectors.toList());
+    }
+
+    @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
+    @GetMapping("/movementElements/operationId/{operationId}")
+    public List<MovementElementResponse> getMovementElementsByOperationId(@PathVariable Long operationId){
+        return movementElementService.getMovementElementsByOperationId(operationId)
                 .stream()
                 .map(this::mapToResponse)
 //                .map(article -> mapToResponse(article))

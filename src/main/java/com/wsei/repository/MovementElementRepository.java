@@ -5,10 +5,11 @@ import com.wsei.model.LocalizationResource;
 import com.wsei.model.MovementElement;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface MovementElementRepository extends JpaRepository<MovementElement, Long> {
-/*    Optional<MovementElement> findByArticleCode(String articleCode);*/
- /*   Optional<MovementElement> findByName(String name);*/
+    List<MovementElement> findAllByOperationId(Long operationId);
+
     Optional<MovementElement> findById(Long id);
 }

@@ -20,9 +20,7 @@ public class MovementElement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="operationId")
-    private Movement movement;
+    private Long operationId;
     private String operationType = "Movement";
 
     @OneToOne

@@ -23,10 +23,10 @@ public class ReleaseElement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
+/*    @OneToOne
     @JoinColumn(name="operationId")
-    private Release release;
-
+    private Release release;*/
+    private Long operationId;
     private String operationType = "Release";
 
     @OneToOne

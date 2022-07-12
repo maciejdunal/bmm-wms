@@ -4,7 +4,6 @@ import com.wsei.controller.model.ArticleUpdateRequest;
 import com.wsei.controller.model.LocalizationUpdateRequest;
 import com.wsei.controller.model.OperationUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.*;
 import com.wsei.repository.*;
@@ -34,6 +33,12 @@ public class ReleaseElementService {
     {
         return repository.findAll();
     }
+
+    public List<ReleaseElement> getReleaseElementsByOperationId(@PathVariable Long operationId)
+    {
+        return repository.findAllByOperationId(operationId);
+    }
+
     public ReleaseElement getReleaseElement(@PathVariable Long id)
     {
         return repository.findById(id)
@@ -75,7 +80,8 @@ public class ReleaseElementService {
         Release release = movementRepository.findById(request.getOperationId())
                 .orElseThrow(() -> new NotFoundException(null));
 
-        releaseElement.setRelease(release);
+        releaseElement.setOperationId(request.getOperationId());
+  /*      releaseElement.setRelease(release);*/
         return repository.save(releaseElement);
     }
 

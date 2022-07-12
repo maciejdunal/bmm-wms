@@ -24,43 +24,20 @@ public class OperationsAudit {
 /*    @ManyToOne
     @JoinColumn(name="operationId")*/
     private Long operationId;
+
     private String operationType;
 
-    @OneToOne
-    @JoinColumn(name="articleId")
-
-    private Article article;
+    private Long articleId;
     private Long userId;
     private Long quantity;
 
-    @OneToOne
-    @JoinColumn(name="localizationId")
-    private Localization localization;
-
-    @OneToOne
-    @JoinColumn(name="sourceLocalizationId")
-    private Localization sourceLocalization;
-
-    @OneToOne
-    @JoinColumn(name="targetLocalizationId")
-    private Localization targetLocalization;
-
-    @OneToOne
-    @JoinColumn(name="warehouseId")
-
-    private Warehouse warehouse;
-
-    @OneToOne
-    @JoinColumn(name="sourceWarehouseId")
-    private Warehouse sourceWarehouse;
-
-    @OneToOne
-    @JoinColumn(name="targetWarehouseId")
-    private Warehouse targetWarehouse;
-
-    @OneToOne
-    @JoinColumn(name="customerId")
-    private Customer customer;
+    private Long localizationId;
+    private Long sourceLocalizationId;
+    private Long targetLocalizationId;
+    private Long warehouseId;
+    private Long sourceWarehouseId;
+    private Long targetWarehouseId;
+    private Long customerId;
 
     private LocalDateTime creationDate;
 /*    private LocalDateTime modificationDate;*/

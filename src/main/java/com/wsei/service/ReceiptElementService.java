@@ -4,7 +4,6 @@ import com.wsei.controller.model.ArticleUpdateRequest;
 import com.wsei.controller.model.LocalizationUpdateRequest;
 import com.wsei.controller.model.OperationUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.*;
 import com.wsei.repository.*;
@@ -32,6 +31,11 @@ public class ReceiptElementService {
     public List<ReceiptElement> getReceiptElements()
     {
         return repository.findAll();
+    }
+
+    public List<ReceiptElement> getReceiptElementsByOperationId(Long operationId)
+    {
+        return repository.findAllByOperationId(operationId);
     }
     public ReceiptElement getReceiptElement(@PathVariable Long id)
     {
@@ -75,7 +79,8 @@ public class ReceiptElementService {
         Receipt receipt = receiptRepository.findById(request.getOperationId())
                 .orElseThrow(() -> new NotFoundException(null));
 
-        receiptElement.setReceipt(receipt);
+        receiptElement.setOperationId(request.getOperationId());
+/*        receiptElement.setReceipt(receipt);*/
         return repository.save(receiptElement);
     }
 

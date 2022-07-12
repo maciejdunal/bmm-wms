@@ -23,13 +23,14 @@ public class ReleaseElementController {
 
     private ReleaseElementResponse mapToResponse(ReleaseElement releaseElement) {
 
-        Release operation = releaseElement.getRelease();
+/*        Release operation = releaseElement.getRelease();*/
         Warehouse warehouse = releaseElement.getWarehouse();
         Article article= releaseElement.getArticle();
         Localization localization = releaseElement.getLocalization();
         return ReleaseElementResponse.builder()
                 .id(releaseElement.getId())
-                .operationId(Objects.nonNull(operation) ? operation.getId() : null)
+/*                .operationId(Objects.nonNull(operation) ? operation.getId() : null)*/
+                .operationId(releaseElement.getOperationId())
                 .operationType(releaseElement.getOperationType())
                 .articleId(Objects.nonNull(article) ? article.getId() : null)
                 .userId(releaseElement.getUser().getId())
@@ -46,6 +47,16 @@ public class ReleaseElementController {
     @GetMapping("/releaseElements")
     public List<ReleaseElementResponse> getReleaseElements() {
         return releaseElementService.getReleaseElements()
+                .stream()
+                .map(this::mapToResponse)
+//                .map(article -> mapToResponse(article))
+                .collect(Collectors.toList());
+    }
+
+    @PreAuthorize("hasRole('Manager') or hasRole('User') or hasRole('Read-Only User')")
+    @GetMapping("/releaseElements/operationId/{operationId}")
+    public List<ReleaseElementResponse> getReleaseElementsByOperationId(@PathVariable Long operationId) {
+        return releaseElementService.getReleaseElementsByOperationId(operationId)
                 .stream()
                 .map(this::mapToResponse)
 //                .map(article -> mapToResponse(article))

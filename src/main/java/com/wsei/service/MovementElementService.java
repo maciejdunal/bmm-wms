@@ -32,6 +32,12 @@ public class MovementElementService {
     {
         return repository.findAll();
     }
+
+    public List<MovementElement> getMovementElementsByOperationId(@PathVariable Long operationId)
+    {
+        return repository.findAllByOperationId(operationId);
+    }
+
     public MovementElement getMovementElement(@PathVariable Long id)
     {
         return repository.findById(id)
@@ -74,7 +80,8 @@ public class MovementElementService {
         Movement movement = movementRepository.findById(request.getOperationId())
                 .orElseThrow(() -> new NotFoundException(null));
 
-        movementElement.setMovement(movement);
+        movementElement.setOperationId(request.getOperationId());
+/*        movementElement.setMovement(movement);*/
         return repository.save(movementElement);
     }
 

@@ -25,10 +25,8 @@ public class ReceiptElement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToOne
-    @JoinColumn(name="operationId")
-    private Receipt receipt;
 
+    private Long operationId;
     private String operationType = "Receipt";
 
     @OneToOne

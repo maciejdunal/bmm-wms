@@ -26,11 +26,9 @@ public class Localization {
     @Size(max = 8)
     private String displayName;
     
-    @OneToOne
-    @JoinColumn(name="warehouseId")
-    private Warehouse warehouse;
-    
+    private Long warehouseId;
     private Long capacity;
+
     @OneToOne
     @JoinColumn(name="placeId")
     private Place place ;
