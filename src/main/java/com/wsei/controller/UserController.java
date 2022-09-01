@@ -35,6 +35,12 @@ public class UserController {
 
     private final UserServiceImpl userService;
 
+    @RequestMapping(value = "/healthCheck", method = RequestMethod.GET)
+    @ResponseBody
+    public String healthCheck() {
+        return "OK";
+    }
+
     private UserResponse mapToResponse(User user) {
 
         Role role = user.getRole();

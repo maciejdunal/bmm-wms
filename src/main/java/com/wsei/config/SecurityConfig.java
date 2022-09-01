@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.List;
 
+import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 @EnableWebMvc
 @Configuration
@@ -51,6 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
 /*        http.authorizeRequests().antMatchers(POST, "/api/login", "/api/tokens/refresh/**").permitAll();*/
+/*        http.authorizeRequests().antMatchers(GET, "/api/healthcheck").permitAll();*/
     /*    http.authorizeRequests().anyRequest().authenticated();*/
         http.addFilter(customAuthenticationFilter);
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);

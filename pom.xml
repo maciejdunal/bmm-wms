@@ -11,7 +11,7 @@
     </parent>
     <groupId>com.wsei</groupId>
     <artifactId>bmm-wms</artifactId>
-    <version>1.0.14</version>
+    <version>1.0.15</version>
     <description>Warehouse Management System</description>
     <properties>
         <java.version>17</java.version>

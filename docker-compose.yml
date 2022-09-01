@@ -1,4 +1,4 @@
-version: "3.9"
+version: "2.9"
 networks:
   app_network:
     name: bmmnetowrk
@@ -7,6 +7,9 @@ networks:
 services:
 
   mssql:
+    build:
+      context: .
+      dockerfile: mssql/Dockerfile
     image: mcr.microsoft.com/mssql/server:2019-latest
     networks:
       - app_network
@@ -19,26 +22,22 @@ services:
       - MSSQL_PID=Express
       - ACCEPT_EULA=Y
       - SA_PASSWORD=yourStrong**Password!
-  check-mssql-started:
-    image: jwilder/dockerize:0.6.1
-    networks:
-      - app_network
-    depends_on:
-      - mssql
-    command: 'dockerize -wait=tcp://mssql:1433 -timeout 30s'
-
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: app/Dockerfile
     depends_on:
-      - check-mssql-started
       - mssql
     image: bmm-wms
     networks:
       - app_network
     ports:
       - "8080:8080"
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/api/healthCheck" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
     environment:
       SPRING_APPLICATION_JSON: '{
         "spring.datasource.url"  : "jdbc:sqlserver://mssql:1433;Database=WMSDatabase;Trusted_Connection=True",
@@ -49,15 +48,6 @@ services:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
-
-  check-app-started:
-    image: jwilder/dockerize:0.6.1
-    networks:
-      - app_network
-    depends_on:
-      - check-mssql-started
-    command: 'dockerize -wait=tcp://app:8080 -timeout 30s'
-
   postman:
     container_name: postmanTests
     image: postman/newman:alpine
@@ -65,19 +55,13 @@ services:
       - app_network
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: mssql/Dockerfile
     depends_on:
+      app:
+        condition: service_healthy
+    links:
       - app
-      - mssql
-      - check-mssql-started
-      - check-app-started
-    environment:
-      - WAIT_HOSTS=app:8080
-      - WAIT_HOSTS_TIMEOUT=300
-      - WAIT_SLEEP_INTERVAL=30
-      - WAIT_HOST_CONNECT_TIMEOUT=30
     command:
-      ./wait.sh
       run BMM-WMS.json -k
       --environment=BMM-WMS.json
       -r htmlextra,cli,json
