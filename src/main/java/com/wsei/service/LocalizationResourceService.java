@@ -1,11 +1,18 @@
 package com.wsei.service;
 
-import com.wsei.controller.model.*;
-import com.wsei.exception.AlreadyExistException;
+import com.wsei.controller.model.ArticleUpdateRequest;
+import com.wsei.controller.model.LocalizationUpdateRequest;
+import com.wsei.controller.model.NewLocalizationResourceRequest;
+import com.wsei.controller.model.WarehouseUpdateRequest;
 import com.wsei.exception.NotFoundException;
-import com.wsei.exception.ResourceNotFoundException;
-import com.wsei.model.*;
-import com.wsei.repository.*;
+import com.wsei.model.Article;
+import com.wsei.model.Localization;
+import com.wsei.model.LocalizationResource;
+import com.wsei.model.Warehouse;
+import com.wsei.repository.ArticleRepository;
+import com.wsei.repository.LocalizationRepository;
+import com.wsei.repository.LocalizationResourcesRepository;
+import com.wsei.repository.WarehouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,57 +27,39 @@ public class LocalizationResourceService {
     private final ArticleRepository articleRepository;
 
 
-    public List<LocalizationResource> getLocalizationResources()
-    {
+    public List<LocalizationResource> getLocalizationResources() {
         return repository.findAll();
     }
-    public LocalizationResource getLocalizationResource(@PathVariable Long id)
-    {
+
+    public LocalizationResource getLocalizationResource(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public LocalizationResource saveLocalizationResource(NewLocalizationResourceRequest newLocalizationResourceRequest)
-    {
-/*        repository.findByArticleCode(newLocalizationResourceRequest.getArticleCode())
-                .ifPresent(existingLocalizationResource -> {
-                    throw new AlreadyExistException();
-                });*/
-/*        articleRepository.findByArticleCode(newLocalizationResourceRequest.getArticleCode())
-                .orElseThrow(() -> new ResourceNotFoundException(newLocalizationResourceRequest.getArticleCode()));*/
-
+    public LocalizationResource saveLocalizationResource(NewLocalizationResourceRequest newLocalizationResourceRequest) {
         LocalizationResource localizationResource = new LocalizationResource();
         localizationResource.setQuantity(newLocalizationResourceRequest.getQuantity());
-/*        localizationResource.setArticleCode(newLocalizationResourceRequest.getArticleCode());*/
         localizationResource.setWeight(newLocalizationResourceRequest.getWeight());
 
         return repository.save(localizationResource);
     }
 
-    public LocalizationResource updateLocalizationResource(NewLocalizationResourceRequest newLocalizationResource, Long id)
-    {
-/*        repository.findByArticleCode(newLocalizationResource.getArticleCode())
-                .ifPresent(existingLocalizationResource -> {
-                    throw new AlreadyExistException();
-                });*/
+    public LocalizationResource updateLocalizationResource(NewLocalizationResourceRequest newLocalizationResource, Long id) {
         return repository.findById(id)
-                .map (localizationResource -> {
+                .map(localizationResource -> {
                     localizationResource.setQuantity(newLocalizationResource.getQuantity());
-/*                    localizationResource.setArticleCode(newLocalizationResource.getArticleCode());*/
                     localizationResource.setWeight(newLocalizationResource.getWeight());
                     return repository.save(localizationResource);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteLocalizationResource(@PathVariable Long id)
-    {
+    public void deleteLocalizationResource(@PathVariable Long id) {
         repository.deleteById(id);
     }
 
     private final WarehouseRepository warehouseRepository;
     private final LocalizationRepository localizationRepository;
-/*    private final ArticleRepository articleRepository;*/
 
     public LocalizationResource assignWarehouse(WarehouseUpdateRequest request) {
         LocalizationResource localizationResource = repository.findById(request.getResourceId())

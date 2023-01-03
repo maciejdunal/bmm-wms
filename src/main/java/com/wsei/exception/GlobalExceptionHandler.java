@@ -21,15 +21,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>("Cannot found Entity with id " + e.getId(), HttpStatus.NOT_FOUND);
     }
 
-/*    @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<String> handleResourceNotFoundException(NotFoundException e){
-        return new ResponseEntity<>("Cannot found Article with articleCode" + e.getMessage(), HttpStatus.NOT_FOUND);
-    }*/
-/*    @ExceptionHandler(RuntimeException.class)
-    public void handleNotFoundException2(RuntimeException e){
-        log.warn("exception", e);
-    }*/
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(

@@ -1,9 +1,7 @@
 package com.wsei.service;
 
 import com.wsei.exception.NotFoundException;
-import com.wsei.model.Article;
 import com.wsei.model.Unit;
-import com.wsei.repository.ArticleRepository;
 import com.wsei.repository.UnitRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,13 +15,11 @@ public class UnitService {
 
     private final UnitRepository repository;
 
-    public List<Unit> getUnits()
-    {
+    public List<Unit> getUnits() {
         return repository.findAll();
     }
 
-    public Unit getUnit(@PathVariable Long id)
-    {
+    public Unit getUnit(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }

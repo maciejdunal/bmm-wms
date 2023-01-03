@@ -45,7 +45,6 @@ public class LevelController {
         return levelService.getLevels()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(row -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

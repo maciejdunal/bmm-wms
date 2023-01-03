@@ -41,7 +41,6 @@ public class RowController {
         return rowService.getRows()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(row -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

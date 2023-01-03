@@ -29,24 +29,20 @@ public class ReleaseElementService {
     private final ReleaseRepository movementRepository;
 
 
-    public List<ReleaseElement> getReleaseElements()
-    {
+    public List<ReleaseElement> getReleaseElements() {
         return repository.findAll();
     }
 
-    public List<ReleaseElement> getReleaseElementsByOperationId(@PathVariable Long operationId)
-    {
+    public List<ReleaseElement> getReleaseElementsByOperationId(@PathVariable Long operationId) {
         return repository.findAllByOperationId(operationId);
     }
 
-    public ReleaseElement getReleaseElement(@PathVariable Long id)
-    {
+    public ReleaseElement getReleaseElement(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public ReleaseElement saveReleaseElement(ReleaseElement releaseElement)
-    {
+    public ReleaseElement saveReleaseElement(ReleaseElement releaseElement) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object username = authentication.getPrincipal();
         User currentUser = userRepository.findByUsername((String) username);
@@ -58,30 +54,25 @@ public class ReleaseElementService {
         return repository.save(releaseElement);
     }
 
-    public ReleaseElement updateReleaseElement(ReleaseElement newReleaseElement, Long id)
-    {
+    public ReleaseElement updateReleaseElement(ReleaseElement newReleaseElement, Long id) {
         return repository.findById(id)
-                .map (releaseElement -> {
+                .map(releaseElement -> {
                     releaseElement.setQuantity(newReleaseElement.getQuantity());
-                    releaseElement.setWeight(newReleaseElement.getWeight());;
+                    releaseElement.setWeight(newReleaseElement.getWeight());
+                    ;
                     return repository.save(releaseElement);
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteReleaseElement(@PathVariable Long id)
-    {
+    public void deleteReleaseElement(@PathVariable Long id) {
         repository.deleteById(id);
     }
 
     public ReleaseElement assignOperation(OperationUpdateRequest request) {
         ReleaseElement releaseElement = repository.findById(request.getResourceId())
                 .orElseThrow(() -> new NotFoundException(null));
-        Release release = movementRepository.findById(request.getOperationId())
-                .orElseThrow(() -> new NotFoundException(null));
-
         releaseElement.setOperationId(request.getOperationId());
-  /*      releaseElement.setRelease(release);*/
         return repository.save(releaseElement);
     }
 

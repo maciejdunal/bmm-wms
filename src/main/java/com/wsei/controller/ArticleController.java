@@ -8,7 +8,6 @@ import com.wsei.model.Article;
 import com.wsei.model.Unit;
 import com.wsei.service.ArticleService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -46,7 +45,6 @@ public class ArticleController {
         return articleService.getArticles()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

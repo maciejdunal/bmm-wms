@@ -1,7 +1,6 @@
 package com.wsei.service;
 
 import com.wsei.controller.model.*;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.*;
 import com.wsei.repository.*;
@@ -18,22 +17,16 @@ public class PlaceService {
     private final PlaceRepository repository;
 
 
-    public List<Place> getPlaces()
-    {
+    public List<Place> getPlaces() {
         return repository.findAll();
     }
-    public Place getPlace(@PathVariable Long id)
-    {
+
+    public Place getPlace(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Place savePlace(NewPlaceRequest newPlaceRequest)
-    {
-/*        repository.findByName(newPlaceRequest.getName())
-                .ifPresent(existingPlace -> {
-                    throw new AlreadyExistException();
-                });*/
+    public Place savePlace(NewPlaceRequest newPlaceRequest) {
         Place place = new Place();
         place.setName(newPlaceRequest.getName());
         place.setCapacity(newPlaceRequest.getCapacity());
@@ -41,10 +34,9 @@ public class PlaceService {
         return repository.save(place);
     }
 
-    public Place updatePlace(NewPlaceRequest newPlace, Long id)
-    {
+    public Place updatePlace(NewPlaceRequest newPlace, Long id) {
         return repository.findById(id)
-                .map (place -> {
+                .map(place -> {
                     place.setName(newPlace.getName());
                     place.setCapacity(newPlace.getCapacity());
                     return repository.save(place);
@@ -52,8 +44,7 @@ public class PlaceService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deletePlace(@PathVariable Long id)
-    {
+    public void deletePlace(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

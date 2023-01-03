@@ -21,7 +21,6 @@ public class MovementElementController {
 
     private MovementElementResponse mapToResponse(MovementElement movementElement) {
 
-/*        Movement operation = movementElement.getMovement();*/
         Warehouse sourceWarehouse = movementElement.getSourceWarehouse();
         Warehouse targetWarehouse = movementElement.getTargetWarehouse();
         Article article= movementElement.getArticle();
@@ -52,7 +51,6 @@ public class MovementElementController {
         return movementElementService.getMovementElements()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 
@@ -62,7 +60,6 @@ public class MovementElementController {
         return movementElementService.getMovementElementsByOperationId(operationId)
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

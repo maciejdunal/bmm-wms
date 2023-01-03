@@ -49,7 +49,6 @@ public class MovementController {
         return movementService.getMovements()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

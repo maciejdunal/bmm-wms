@@ -21,19 +21,10 @@ public class OperationsAuditController {
 
     private OperationsAuditResponse mapToResponse(OperationsAudit operationsAudit) {
 
-        //Movement operation = operationsAudit.getMovement();
-/*        Warehouse warehouse = operationsAudit.getSourceWarehouse();
-        Warehouse sourceWarehouse = operationsAudit.getSourceWarehouse();
-        Warehouse targetWarehouse = operationsAudit.getTargetWarehouse();
-        Article article= operationsAudit.getArticle();
-        Localization localization = operationsAudit.getLocalization();
-        Localization sourceLocalization = operationsAudit.getSourceLocalization();
-        Localization targetLocalization = operationsAudit.getTargetLocalization();*/
         return OperationsAuditResponse.builder()
                 .uuid(operationsAudit.getUuid())
                 .operationId(operationsAudit.getOperationId())
                 .operationType(operationsAudit.getOperationType())
-/*                .articleId(Objects.nonNull(article) ? article.getId() : null)*/
                 .articleId(operationsAudit.getArticleId())
                 .userId(operationsAudit.getUserId())
                 .quantity(operationsAudit.getQuantity())
@@ -44,16 +35,6 @@ public class OperationsAuditController {
                 .warehouseId(operationsAudit.getWarehouseId())
                 .sourceWarehouseId(operationsAudit.getSourceWarehouseId())
                 .targetWarehouseId(operationsAudit.getTargetWarehouseId())
-/*                .userId(operationsAudit.getUserId())
-                .quantity(operationsAudit.getQuantity())
-                .localizationId(Objects.nonNull(localization) ? localization.getId() : null)
-                .sourceLocalizationId(Objects.nonNull(sourceLocalization) ? sourceLocalization.getId() : null)
-                .targetLocalizationId(Objects.nonNull(targetLocalization) ? targetLocalization.getId() : null)
-                .creationDate(operationsAudit.getCreationDate())
-                .warehouseId(Objects.nonNull(warehouse) ? warehouse.getId() : null)
-                .sourceWarehouseId(Objects.nonNull(sourceWarehouse) ? sourceWarehouse.getId() : null)
-                .targetWarehouseId(Objects.nonNull(targetWarehouse) ? targetWarehouse.getId() : null)*/
-
                 .build();
     }
     
@@ -63,7 +44,6 @@ public class OperationsAuditController {
         return operationsAuditService.getOperationsAudit()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

@@ -2,7 +2,6 @@ package com.wsei.service;
 
 import com.wsei.controller.model.NewUserRequest;
 import com.wsei.controller.model.RoleUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.Role;
 import com.wsei.model.User;
@@ -37,24 +36,23 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-        if(user == null){
+        if (user == null) {
             log.error("User not found in the database");
             throw new UsernameNotFoundException("User not found in the database");
-        }
-        else {
+        } else {
             log.info("User found in the database: {}", username);
         }
         Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new SimpleGrantedAuthority(user.getRole().getName()));
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), authorities);
     }
+
     public User saveUser(NewUserRequest newUserRequest) {
         log.info("Saving new user {} to the database", newUserRequest.getName());
         userRepository.findByUsername(newUserRequest.getUsername());
         User user = new User();
 
         user.setUsername(newUserRequest.getUsername());
-//        newUserRequest.setPassword(passwordEncoder.encode((newUserRequest.getPassword())));
         user.setPassword(passwordEncoder.encode((newUserRequest.getPassword())));
         user.setName(newUserRequest.getName());
         user.setSurname(newUserRequest.getSurname());
@@ -63,8 +61,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.save(user);
     }
 
-    public User updateUser(NewUserRequest newUser, Long id)
-    {
+    public User updateUser(NewUserRequest newUser, Long id) {
         return userRepository.findById(id)
                 .map(user -> {
                     user.setUsername(newUser.getUsername());
@@ -76,24 +73,16 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteUser(@PathVariable Long id)
-    {
+    public void deleteUser(@PathVariable Long id) {
         userRepository.deleteById(id);
     }
 
-    //nie ma juz
-/*    @Override
-    public Role saveRole(Role role) {
-        return roleRepository.save(role);
-    }*/
-
-
     public User assignRole(RoleUpdateRequest request) {
-    User user = userRepository.findByUsername(request.getUsername());
-    Role role = roleRepository.findByName(request.getRoleName());
-    user.setRole(role);
-    userRepository.save(user);
-    return userRepository.save(user);
+        User user = userRepository.findByUsername(request.getUsername());
+        Role role = roleRepository.findByName(request.getRoleName());
+        user.setRole(role);
+        userRepository.save(user);
+        return userRepository.save(user);
     }
 
     @Override
@@ -108,8 +97,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         return userRepository.findAll();
     }
 
-    public User getUser(@PathVariable Long id)
-    {
+    public User getUser(@PathVariable Long id) {
         return userRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }

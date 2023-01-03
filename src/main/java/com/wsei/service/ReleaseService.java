@@ -2,9 +2,11 @@ package com.wsei.service;
 
 import com.wsei.controller.model.CustomerUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
-import com.wsei.model.*;
+import com.wsei.model.Customer;
+import com.wsei.model.Release;
+import com.wsei.model.User;
+import com.wsei.model.Warehouse;
 import com.wsei.repository.CustomerRepository;
 import com.wsei.repository.ReleaseRepository;
 import com.wsei.repository.UserRepository;
@@ -28,22 +30,19 @@ public class ReleaseService {
     private final CustomerRepository customerRepository;
 
 
-    public List<Release> getReleases()
-    {
+    public List<Release> getReleases() {
         return repository.findAll();
     }
-    public Release getRelease(@PathVariable Long id)
-    {
+
+    public Release getRelease(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Release saveRelease(Release release)
-    {
+    public Release saveRelease(Release release) {
         repository.findByDocumentNumber(release.getDocumentNumber())
                 .ifPresent(existingReceipt -> {
-                    /*throw new AlreadyExistException()*/
-                    String documentNumber =  "r" + UUID.randomUUID().toString() + "e";
+                    String documentNumber = "r" + UUID.randomUUID().toString() + "e";
                     release.setDocumentNumber(documentNumber);
                 });
 
@@ -59,10 +58,9 @@ public class ReleaseService {
         return repository.save(release);
     }
 
-    public Release updateRelease(Release newRelease, Long id)
-    {
+    public Release updateRelease(Release newRelease, Long id) {
         return repository.findById(id)
-                .map (release -> {
+                .map(release -> {
                     release.setDescription(newRelease.getDescription());
                     release.setModificationDate(LocalDateTime.now());
 
@@ -71,8 +69,7 @@ public class ReleaseService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteRelease(@PathVariable Long id)
-    {
+    public void deleteRelease(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

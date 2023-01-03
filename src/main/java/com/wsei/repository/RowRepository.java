@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface RowRepository extends JpaRepository<Row, Long> {
     Optional<Row> findByName(String name);
+
     Optional<Row> findById(Long id);
 }

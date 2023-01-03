@@ -23,13 +23,11 @@ public class ReleaseElementController {
 
     private ReleaseElementResponse mapToResponse(ReleaseElement releaseElement) {
 
-/*        Release operation = releaseElement.getRelease();*/
         Warehouse warehouse = releaseElement.getWarehouse();
         Article article= releaseElement.getArticle();
         Localization localization = releaseElement.getLocalization();
         return ReleaseElementResponse.builder()
                 .id(releaseElement.getId())
-/*                .operationId(Objects.nonNull(operation) ? operation.getId() : null)*/
                 .operationId(releaseElement.getOperationId())
                 .operationType(releaseElement.getOperationType())
                 .articleId(Objects.nonNull(article) ? article.getId() : null)
@@ -49,7 +47,6 @@ public class ReleaseElementController {
         return releaseElementService.getReleaseElements()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 
@@ -59,7 +56,6 @@ public class ReleaseElementController {
         return releaseElementService.getReleaseElementsByOperationId(operationId)
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

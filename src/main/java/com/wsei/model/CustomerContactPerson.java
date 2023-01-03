@@ -12,26 +12,21 @@ import javax.validation.constraints.Size;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="CustomersContactPerson", schema = "Counterparties")
+@Table(name = "CustomersContactPerson", schema = "Counterparties")
 public class CustomerContactPerson {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
     @Size(max = 50)
     private String name;
-    
     @Size(max = 50)
     private String surname;
-    
+
     @Size(max = 50)
     @Email
     private String email;
-    
+
     @Size(max = 20)
     private String phoneNumber;
-/*    @OneToOne
-    @JoinColumn(name="name")
-    private Customer customer;*/
 }

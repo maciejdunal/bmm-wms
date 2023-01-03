@@ -25,27 +25,22 @@ public class MovementElementService {
     private final WarehouseRepository warehouseRepository;
     private final LocalizationRepository localizationRepository;
     private final ArticleRepository articleRepository;
-    private final MovementRepository movementRepository;
 
 
-    public List<MovementElement> getMovementElements()
-    {
+    public List<MovementElement> getMovementElements() {
         return repository.findAll();
     }
 
-    public List<MovementElement> getMovementElementsByOperationId(@PathVariable Long operationId)
-    {
+    public List<MovementElement> getMovementElementsByOperationId(@PathVariable Long operationId) {
         return repository.findAllByOperationId(operationId);
     }
 
-    public MovementElement getMovementElement(@PathVariable Long id)
-    {
+    public MovementElement getMovementElement(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public MovementElement saveMovementElement(MovementElement movementElement)
-    {
+    public MovementElement saveMovementElement(MovementElement movementElement) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object username = authentication.getPrincipal();
@@ -58,10 +53,9 @@ public class MovementElementService {
         return repository.save(movementElement);
     }
 
-    public MovementElement updateMovementElement(MovementElement newMovementElement, Long id)
-    {
+    public MovementElement updateMovementElement(MovementElement newMovementElement, Long id) {
         return repository.findById(id)
-                .map (movementElement -> {
+                .map(movementElement -> {
                     movementElement.setQuantity(newMovementElement.getQuantity());
                     movementElement.setWeight(newMovementElement.getWeight());
                     return repository.save(movementElement);
@@ -69,19 +63,14 @@ public class MovementElementService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteMovementElement(@PathVariable Long id)
-    {
+    public void deleteMovementElement(@PathVariable Long id) {
         repository.deleteById(id);
     }
 
     public MovementElement assignOperation(OperationUpdateRequest request) {
         MovementElement movementElement = repository.findById(request.getResourceId())
                 .orElseThrow(() -> new NotFoundException(null));
-        Movement movement = movementRepository.findById(request.getOperationId())
-                .orElseThrow(() -> new NotFoundException(null));
-
         movementElement.setOperationId(request.getOperationId());
-/*        movementElement.setMovement(movement);*/
         return repository.save(movementElement);
     }
 
@@ -114,18 +103,18 @@ public class MovementElementService {
 
         movementElement.setTargetWarehouse(warehouse);
         return repository.save(movementElement);
-        }
+    }
 
-        public MovementElement assignLocalization(LocalizationUpdateRequest request) {
-            MovementElement movementElement = repository.findById(request.getResourceId())
-                    .orElseThrow(() -> new NotFoundException(null));
-            Localization localization = localizationRepository.findById(request.getLocalizationId())
-                    .orElseThrow(() -> new NotFoundException(null));
+    public MovementElement assignLocalization(LocalizationUpdateRequest request) {
+        MovementElement movementElement = repository.findById(request.getResourceId())
+                .orElseThrow(() -> new NotFoundException(null));
+        Localization localization = localizationRepository.findById(request.getLocalizationId())
+                .orElseThrow(() -> new NotFoundException(null));
 
-            movementElement.setSourceLocalization(localization);
-            movementElement.setTargetLocalization(localization);
-            return repository.save(movementElement);
-        }
+        movementElement.setSourceLocalization(localization);
+        movementElement.setTargetLocalization(localization);
+        return repository.save(movementElement);
+    }
 
     public MovementElement assignTargetLocalization(LocalizationUpdateRequest request) {
         MovementElement movementElement = repository.findById(request.getResourceId())

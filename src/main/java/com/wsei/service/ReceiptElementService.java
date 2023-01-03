@@ -28,23 +28,20 @@ public class ReceiptElementService {
     private final ReceiptRepository receiptRepository;
 
 
-    public List<ReceiptElement> getReceiptElements()
-    {
+    public List<ReceiptElement> getReceiptElements() {
         return repository.findAll();
     }
 
-    public List<ReceiptElement> getReceiptElementsByOperationId(Long operationId)
-    {
+    public List<ReceiptElement> getReceiptElementsByOperationId(Long operationId) {
         return repository.findAllByOperationId(operationId);
     }
-    public ReceiptElement getReceiptElement(@PathVariable Long id)
-    {
+
+    public ReceiptElement getReceiptElement(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public ReceiptElement saveReceiptElement(ReceiptElement receiptElement)
-    {
+    public ReceiptElement saveReceiptElement(ReceiptElement receiptElement) {
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Object username = authentication.getPrincipal();
@@ -57,10 +54,9 @@ public class ReceiptElementService {
         return repository.save(receiptElement);
     }
 
-    public ReceiptElement updateReceiptElement(ReceiptElement newReceiptElement, Long id)
-    {
+    public ReceiptElement updateReceiptElement(ReceiptElement newReceiptElement, Long id) {
         return repository.findById(id)
-                .map (receiptElement -> {
+                .map(receiptElement -> {
                     receiptElement.setQuantity(newReceiptElement.getQuantity());
                     receiptElement.setWeight(newReceiptElement.getWeight());
                     return repository.save(receiptElement);
@@ -68,8 +64,7 @@ public class ReceiptElementService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteReceiptElement(@PathVariable Long id)
-    {
+    public void deleteReceiptElement(@PathVariable Long id) {
         repository.deleteById(id);
     }
 
@@ -80,7 +75,6 @@ public class ReceiptElementService {
                 .orElseThrow(() -> new NotFoundException(null));
 
         receiptElement.setOperationId(request.getOperationId());
-/*        receiptElement.setReceipt(receipt);*/
         return repository.save(receiptElement);
     }
 

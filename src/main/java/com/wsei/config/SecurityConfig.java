@@ -21,7 +21,7 @@ import java.util.List;
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-@EnableWebMvc //turn off to enable swagger api
+@EnableWebMvc
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -47,28 +47,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests().antMatchers("/**").permitAll().anyRequest()
                 .authenticated().and().csrf().disable().cors().configurationSource(request -> corsConfiguration);
-
-/*        http.cors();*/
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
-/*        http.authorizeRequests().antMatchers(POST, "/api/login", "/api/tokens/refresh/**").permitAll();*/
-/*        http.authorizeRequests().antMatchers(GET, "/api/healthcheck").permitAll();*/
-    /*    http.authorizeRequests().anyRequest().authenticated();*/
         http.addFilter(customAuthenticationFilter);
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 
     }
-
-//z d, ddzialajcy login
-/*    @Bean
-    public CorsConfigurationSource corsConfigurationSource(){
-        CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOriginPatterns(Collections.singletonList("*"));
-        corsConfiguration.setAllowedMethods(Collections.singletonList("*"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", corsConfiguration);
-        return source;
-    }*/
 
     @Bean
     @Override

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="MovementElements", schema = "Operations")
+@Table(name = "MovementElements", schema = "Operations")
 public class MovementElement {
 
     @Id
@@ -24,28 +24,33 @@ public class MovementElement {
     private String operationType = "Movement";
 
     @OneToOne
-    @JoinColumn(name="articleId")
+    @JoinColumn(name = "articleId")
     private Article article;
 
     @OneToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name = "userId")
     private User user;
 
     private Long quantity;
-    
-    @Digits(integer=6, fraction=2)
+
+    @Digits(integer = 6, fraction = 2)
     private BigDecimal weight;
+
     @OneToOne
-    @JoinColumn(name="sourceLocalizationId")
+    @JoinColumn(name = "sourceLocalizationId")
     private Localization sourceLocalization;
+
     @OneToOne
-    @JoinColumn(name="targetLocalizationId")
+    @JoinColumn(name = "targetLocalizationId")
     private Localization targetLocalization;
+
     private LocalDateTime creationDate;
+
     @OneToOne
-    @JoinColumn(name="sourceWarehouseId")
+    @JoinColumn(name = "sourceWarehouseId")
     private Warehouse sourceWarehouse;
+
     @OneToOne
-    @JoinColumn(name="targetWarehouseId")
+    @JoinColumn(name = "targetWarehouseId")
     private Warehouse targetWarehouse;
 }

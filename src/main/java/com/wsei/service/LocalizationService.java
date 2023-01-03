@@ -2,12 +2,15 @@ package com.wsei.service;
 
 import com.wsei.controller.model.NewLocalizationRequest;
 import com.wsei.controller.model.PlaceUpdateRequest;
-import com.wsei.controller.model.RowUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
 import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
-import com.wsei.model.*;
-import com.wsei.repository.*;
+import com.wsei.model.Localization;
+import com.wsei.model.Place;
+import com.wsei.model.Warehouse;
+import com.wsei.repository.LocalizationRepository;
+import com.wsei.repository.PlaceRepository;
+import com.wsei.repository.WarehouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,22 +24,20 @@ public class LocalizationService {
     private final LocalizationRepository repository;
 
 
-    public List<Localization> getLocalizations()
-    {
+    public List<Localization> getLocalizations() {
         return repository.findAll();
     }
-    public List<Localization> getLocalizationsByWarehouseId(@PathVariable Long warehouseId)
-    {
+
+    public List<Localization> getLocalizationsByWarehouseId(@PathVariable Long warehouseId) {
         return repository.findAllByWarehouseId(warehouseId);
     }
-    public Localization getLocalization(@PathVariable Long id)
-    {
+
+    public Localization getLocalization(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Localization saveLocalization(NewLocalizationRequest newLocalizationRequest)
-    {
+    public Localization saveLocalization(NewLocalizationRequest newLocalizationRequest) {
         repository.findByName(newLocalizationRequest.getName())
                 .ifPresent(existingLocalization -> {
                     throw new AlreadyExistException();
@@ -49,10 +50,9 @@ public class LocalizationService {
         return repository.save(localization);
     }
 
-    public Localization updateLocalization(NewLocalizationRequest newLocalization, Long id)
-    {
+    public Localization updateLocalization(NewLocalizationRequest newLocalization, Long id) {
         return repository.findById(id)
-                .map (localization -> {
+                .map(localization -> {
                     localization.setName(newLocalization.getName());
                     localization.setDisplayName(newLocalization.getDisplayName());
                     localization.setCapacity(newLocalization.getCapacity());
@@ -61,8 +61,7 @@ public class LocalizationService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteLocalization(@PathVariable Long id)
-    {
+    public void deleteLocalization(@PathVariable Long id) {
         repository.deleteById(id);
     }
 
@@ -75,7 +74,6 @@ public class LocalizationService {
         Warehouse warehouse = warehouseRepository.findById(request.getWarehouseId())
                 .orElseThrow(() -> new NotFoundException(null));
         localization.setWarehouseId(request.getWarehouseId());
-/*        localization.setWarehouse(warehouse);*/
         return repository.save(localization);
     }
 

@@ -4,7 +4,6 @@ import com.wsei.controller.model.NewLevelRequest;
 import com.wsei.controller.model.RackUpdateRequest;
 import com.wsei.controller.model.RowUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.Level;
 import com.wsei.model.Rack;
@@ -27,22 +26,16 @@ public class LevelService {
     private final LevelRepository repository;
 
 
-    public List<Level> getLevels()
-    {
+    public List<Level> getLevels() {
         return repository.findAll();
     }
-    public Level getLevel(@PathVariable Long id)
-    {
+
+    public Level getLevel(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Level saveLevel(NewLevelRequest newLevelRequest)
-    {
-/*        repository.findByName(newLevelRequest.getName())
-                .ifPresent(existingLevel -> {
-                    throw new AlreadyExistException();
-                });*/
+    public Level saveLevel(NewLevelRequest newLevelRequest) {
         Level level = new Level();
         level.setName(newLevelRequest.getName());
         level.setCapacity(newLevelRequest.getCapacity());
@@ -50,10 +43,9 @@ public class LevelService {
         return repository.save(level);
     }
 
-    public Level updateLevel(NewLevelRequest newLevel, Long id)
-    {
+    public Level updateLevel(NewLevelRequest newLevel, Long id) {
         return repository.findById(id)
-                .map (level -> {
+                .map(level -> {
                     level.setName(newLevel.getName());
                     level.setCapacity(newLevel.getCapacity());
                     return repository.save(level);
@@ -61,8 +53,7 @@ public class LevelService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteLevel(@PathVariable Long id)
-    {
+    public void deleteLevel(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

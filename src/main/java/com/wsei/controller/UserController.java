@@ -12,7 +12,6 @@ import com.wsei.model.Role;
 import com.wsei.model.User;
 import com.wsei.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -61,7 +60,6 @@ public class UserController {
         return userService.getUsers()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
     @PreAuthorize("hasRole('Manager')")

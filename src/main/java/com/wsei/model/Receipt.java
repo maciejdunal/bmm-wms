@@ -13,7 +13,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="Receipts", schema = "Operations")
+@Table(name = "Receipts", schema = "Operations")
 public class Receipt {
 
     @Id
@@ -26,17 +26,17 @@ public class Receipt {
     private LocalDateTime modificationDate;
 
     @OneToOne
-    @JoinColumn(name="warehouseId")
+    @JoinColumn(name = "warehouseId")
     private Warehouse warehouse;
-    
+
     @OneToOne
-    @JoinColumn(name="customerId")
+    @JoinColumn(name = "customerId")
     private Customer customer;
     @Size(max = 50)
     private String description;
-    
+
     @OneToOne
-    @JoinColumn(name="userId")
+    @JoinColumn(name = "userId")
     private User user;
 
 }

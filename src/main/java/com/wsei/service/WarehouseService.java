@@ -20,18 +20,16 @@ public class WarehouseService {
     private final WarehouseRepository repository;
 
 
-    public List<Warehouse> getWarehouses()
-    {
+    public List<Warehouse> getWarehouses() {
         return repository.findAll();
     }
-    public Warehouse getWarehouse(@PathVariable Long id)
-    {
+
+    public Warehouse getWarehouse(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Warehouse saveWarehouse(NewWarehouseRequest newWarehouseRequest)
-    {
+    public Warehouse saveWarehouse(NewWarehouseRequest newWarehouseRequest) {
         repository.findByName(newWarehouseRequest.getName())
                 .ifPresent(existingWarehouse -> {
                     throw new AlreadyExistException();
@@ -50,11 +48,10 @@ public class WarehouseService {
         return repository.save(warehouse);
     }
 
-    public Warehouse updateWarehouse(@RequestBody NewWarehouseRequest newWarehouse, @PathVariable Long id)
-    {
+    public Warehouse updateWarehouse(@RequestBody NewWarehouseRequest newWarehouse, @PathVariable Long id) {
 
         return repository.findById(id)
-                .map (warehouse -> {
+                .map(warehouse -> {
                     warehouse.setName(newWarehouse.getName());
                     warehouse.setDisplayName(newWarehouse.getDisplayName());
                     warehouse.setCapacity(newWarehouse.getCapacity());
@@ -64,8 +61,7 @@ public class WarehouseService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteWarehouse(@PathVariable Long id)
-    {
+    public void deleteWarehouse(@PathVariable Long id) {
         repository.deleteById(id);
     }
 }

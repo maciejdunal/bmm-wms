@@ -1,11 +1,12 @@
 package com.wsei.service;
 
 import com.wsei.controller.model.CustomerUpdateRequest;
-import com.wsei.controller.model.RowUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
-import com.wsei.model.*;
+import com.wsei.model.Customer;
+import com.wsei.model.Receipt;
+import com.wsei.model.User;
+import com.wsei.model.Warehouse;
 import com.wsei.repository.CustomerRepository;
 import com.wsei.repository.ReceiptRepository;
 import com.wsei.repository.UserRepository;
@@ -29,19 +30,19 @@ public class ReceiptService {
     private final WarehouseRepository warehouseRepository;
     private final CustomerRepository customerRepository;
 
-    public List<Receipt> getReceipts(){
+    public List<Receipt> getReceipts() {
         return repository.findAll();
     }
 
-    public Receipt getReceipt(@PathVariable Long id){
+    public Receipt getReceipt(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
-    public Receipt saveReceipt(Receipt receipt){
+
+    public Receipt saveReceipt(Receipt receipt) {
         repository.findByDocumentNumber(receipt.getDocumentNumber())
                 .ifPresent(existingReceipt -> {
-                    /*throw new AlreadyExistException()*/
-                    String documentNumber =  "r" + UUID.randomUUID().toString() + "t";
+                    String documentNumber = "r" + UUID.randomUUID().toString() + "t";
                     receipt.setDocumentNumber(documentNumber);
                 });
 
@@ -57,10 +58,9 @@ public class ReceiptService {
         return repository.save(receipt);
     }
 
-    public Receipt updateReceipt(Receipt newReceipt, Long id)
-    {
+    public Receipt updateReceipt(Receipt newReceipt, Long id) {
         return repository.findById(id)
-                .map (receipt -> {
+                .map(receipt -> {
 
                     receipt.setDescription(newReceipt.getDescription());
                     receipt.setModificationDate(LocalDateTime.now());
@@ -69,8 +69,7 @@ public class ReceiptService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteReceipt(@PathVariable Long id)
-    {
+    public void deleteReceipt(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

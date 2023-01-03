@@ -30,7 +30,6 @@ public class RackController {
         return rackService.getRacks()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(rack -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

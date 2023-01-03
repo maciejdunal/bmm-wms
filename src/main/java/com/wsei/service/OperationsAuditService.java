@@ -13,8 +13,7 @@ public class OperationsAuditService {
 
     private final OperationsAuditRepository repository;
 
-    public List<OperationsAudit> getOperationsAudit()
-    {
+    public List<OperationsAudit> getOperationsAudit() {
         return repository.findAll();
     }
 }

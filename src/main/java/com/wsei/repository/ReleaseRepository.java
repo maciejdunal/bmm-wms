@@ -8,5 +8,6 @@ import java.util.Optional;
 
 public interface ReleaseRepository extends JpaRepository<Release, Long> {
     Optional<Receipt> findByDocumentNumber(String documentNumber);
+
     Optional<Release> findById(Long id);
 }

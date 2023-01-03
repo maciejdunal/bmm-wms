@@ -3,8 +3,14 @@ package com.wsei.service;
 import com.wsei.controller.model.CustomerUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
 import com.wsei.exception.NotFoundException;
-import com.wsei.model.*;
-import com.wsei.repository.*;
+import com.wsei.model.Customer;
+import com.wsei.model.Movement;
+import com.wsei.model.User;
+import com.wsei.model.Warehouse;
+import com.wsei.repository.CustomerRepository;
+import com.wsei.repository.MovementRepository;
+import com.wsei.repository.UserRepository;
+import com.wsei.repository.WarehouseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,19 +30,19 @@ public class MovementService {
     private final WarehouseRepository warehouseRepository;
     private final CustomerRepository customerRepository;
 
-    public List<Movement> getMovements(){
+    public List<Movement> getMovements() {
         return repository.findAll();
     }
 
-    public Movement getMovement(@PathVariable Long id){
+    public Movement getMovement(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
-    public Movement saveMovement(Movement movement){
+
+    public Movement saveMovement(Movement movement) {
         repository.findByDocumentNumber(movement.getDocumentNumber())
                 .ifPresent(existingMovement -> {
-                    /*throw new AlreadyExistException()*/
-                    String documentNumber =  "m" + UUID.randomUUID().toString() + "t";
+                    String documentNumber = "m" + UUID.randomUUID().toString() + "t";
                     movement.setDocumentNumber(documentNumber);
                 });
 
@@ -52,10 +58,9 @@ public class MovementService {
         return repository.save(movement);
     }
 
-    public Movement updateMovement(Movement newMovement, Long id)
-    {
+    public Movement updateMovement(Movement newMovement, Long id) {
         return repository.findById(id)
-                .map (movement -> {
+                .map(movement -> {
 
                     movement.setDescription(newMovement.getDescription());
                     movement.setModificationDate(LocalDateTime.now());
@@ -64,8 +69,7 @@ public class MovementService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteMovement(@PathVariable Long id)
-    {
+    public void deleteMovement(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

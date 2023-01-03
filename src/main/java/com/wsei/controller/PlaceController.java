@@ -44,7 +44,6 @@ public class PlaceController {
         return placeService.getPlaces()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(row -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

@@ -21,13 +21,11 @@ public class ReceiptElementController {
 
     private ReceiptElementResponse mapToResponse(ReceiptElement receiptElement) {
 
-/*        Receipt operation = receiptElement.getReceipt();*/
         Warehouse warehouse = receiptElement.getWarehouse();
         Article article= receiptElement.getArticle();
         Localization localization = receiptElement.getLocalization();
         return ReceiptElementResponse.builder()
                 .id(receiptElement.getId())
-/*                .operationId(Objects.nonNull(operation) ? operation.getId() : null)*/
                 .operationId(receiptElement.getOperationId())
                 .operationType(receiptElement.getOperationType())
                 .articleId(Objects.nonNull(article) ? article.getId() : null)
@@ -47,7 +45,6 @@ public class ReceiptElementController {
         return receiptElementService.getReceiptElements()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 
@@ -57,7 +54,6 @@ public class ReceiptElementController {
         return receiptElementService.getReceiptElementsByOperationId(operationId)
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

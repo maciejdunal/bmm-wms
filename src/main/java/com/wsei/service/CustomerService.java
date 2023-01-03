@@ -22,18 +22,16 @@ public class CustomerService {
     private final CustomerContactPersonRepository customerContactPersonRepository;
 
 
-    public List<Customer> getCustomers()
-    {
+    public List<Customer> getCustomers() {
         return repository.findAll();
     }
-    public Customer getCustomer(@PathVariable Long id)
-    {
+
+    public Customer getCustomer(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Customer saveCustomer(Customer customer)
-    {
+    public Customer saveCustomer(Customer customer) {
         repository.findByName(customer.getName())
                 .ifPresent(existingCustomer -> {
                     throw new AlreadyExistException();
@@ -42,10 +40,9 @@ public class CustomerService {
         return repository.save(customer);
     }
 
-    public Customer updateCustomer(Customer newCustomer, Long id)
-    {
+    public Customer updateCustomer(Customer newCustomer, Long id) {
         return repository.findById(id)
-                .map (customer -> {
+                .map(customer -> {
                     customer.setName(newCustomer.getName());
                     customer.setStreet(newCustomer.getStreet());
                     customer.setCity(newCustomer.getCity());
@@ -59,8 +56,7 @@ public class CustomerService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteCustomer(@PathVariable Long id)
-    {
+    public void deleteCustomer(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

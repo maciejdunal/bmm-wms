@@ -1,7 +1,5 @@
 package com.wsei.repository;
 
-import com.wsei.model.Article;
-import com.wsei.model.LocalizationResource;
 import com.wsei.model.MovementElement;
 import org.springframework.data.jpa.repository.JpaRepository;
 

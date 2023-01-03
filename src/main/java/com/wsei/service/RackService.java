@@ -3,7 +3,6 @@ package com.wsei.service;
 import com.wsei.controller.model.NewRackRequest;
 import com.wsei.controller.model.RowUpdateRequest;
 import com.wsei.controller.model.WarehouseUpdateRequest;
-import com.wsei.exception.AlreadyExistException;
 import com.wsei.exception.NotFoundException;
 import com.wsei.model.Rack;
 import com.wsei.model.Row;
@@ -25,33 +24,25 @@ public class RackService {
     private final RackRepository repository;
 
 
-    public List<Rack> getRacks()
-    {
+    public List<Rack> getRacks() {
         return repository.findAll();
     }
-    public Rack getRack(@PathVariable Long id)
-    {
+
+    public Rack getRack(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public Rack saveRack(NewRackRequest newRackRequest)
-    {
-/*        repository.findByName(newRackRequest.getName())
-                .ifPresent(existingRack -> {
-                    throw new AlreadyExistException();
-                });*/
-
+    public Rack saveRack(NewRackRequest newRackRequest) {
         Rack rack = new Rack();
         rack.setName(newRackRequest.getName());
         rack.setCapacity(newRackRequest.getCapacity());
         return repository.save(rack);
     }
 
-    public Rack updateRack(@RequestBody NewRackRequest newRack, @PathVariable Long id)
-    {
+    public Rack updateRack(@RequestBody NewRackRequest newRack, @PathVariable Long id) {
         return repository.findById(id)
-                .map (rack -> {
+                .map(rack -> {
                     rack.setName(newRack.getName());
                     rack.setCapacity(newRack.getCapacity());
                     return repository.save(rack);
@@ -59,8 +50,7 @@ public class RackService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteRack(@PathVariable Long id)
-    {
+    public void deleteRack(@PathVariable Long id) {
         repository.deleteById(id);
     }
 

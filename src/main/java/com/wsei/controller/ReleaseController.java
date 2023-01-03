@@ -49,7 +49,6 @@ public class ReleaseController {
         return releaseService.getReleases()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

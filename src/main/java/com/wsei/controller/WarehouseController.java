@@ -1,20 +1,13 @@
 package com.wsei.controller;
 
-import com.wsei.controller.model.ArticleResponse;
 import com.wsei.controller.model.NewWarehouseRequest;
 import com.wsei.controller.model.WarehouseResponse;
-import com.wsei.model.Article;
-import com.wsei.model.Unit;
 import com.wsei.model.Warehouse;
 import com.wsei.service.WarehouseService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @RestController
@@ -43,7 +36,6 @@ public class WarehouseController {
         return warehouseService.getWarehouses()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(warehouse -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

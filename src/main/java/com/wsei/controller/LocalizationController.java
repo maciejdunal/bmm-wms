@@ -22,7 +22,6 @@ public class LocalizationController {
 
     private LocalizationResponse mapToResponse(Localization localization) {
 
-/*        Warehouse warehouse = localization.getWarehouse();*/
         Place place = localization.getPlace();
 
         return LocalizationResponse.builder()
@@ -32,7 +31,6 @@ public class LocalizationController {
                 .capacity(localization.getCapacity())
                 .placeId(Objects.nonNull(place) ? place.getId() : null)
                 .warehouseId(localization.getWarehouseId())
-/*                .warehouseId(Objects.nonNull(warehouse) ? warehouse.getId() : null)*/
                 .build();
     }
 
@@ -42,7 +40,6 @@ public class LocalizationController {
         return localizationService.getLocalizations()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(row -> mapToResponse(article))
                 .collect(Collectors.toList());
 
     }
@@ -53,7 +50,6 @@ public class LocalizationController {
         return localizationService.getLocalizationsByWarehouseId(warehouseId)
                 .stream()
                 .map(this::mapToResponse)
-//                .map(row -> mapToResponse(article))
                 .collect(Collectors.toList());
 
     }

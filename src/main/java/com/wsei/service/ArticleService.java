@@ -14,7 +14,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,18 +26,17 @@ public class ArticleService {
     private final ArticleRepository repository;
     private final UserRepository userRepository;
     private final UnitRepository unitRepository;
-    
-    public List<Article> getArticles()
-    {
+
+    public List<Article> getArticles() {
         return repository.findAll();
     }
-    
-    public Article getArticle(@PathVariable Long id){
+
+    public Article getArticle(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
-    
-    public Article saveArticle(NewArticleRequest newArticleRequest){
+
+    public Article saveArticle(NewArticleRequest newArticleRequest) {
         repository.findByName(newArticleRequest.getArticleCode())
                 .ifPresent(existingArticle -> {
                     throw new AlreadyExistException();
@@ -59,7 +59,7 @@ public class ArticleService {
 
         return repository.save(article);
     }
-    
+
     public Article updateArticle(@RequestBody NewArticleRequest newArticle, @PathVariable Long id) {
         return repository.findById(id)
                 .map(article -> {
@@ -71,7 +71,7 @@ public class ArticleService {
                 })
                 .orElseThrow(() -> new NotFoundException(id));
     }
-    
+
     public void deleteArticle(@PathVariable Long id) {
         repository.deleteById(id);
     }

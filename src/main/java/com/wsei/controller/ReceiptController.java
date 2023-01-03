@@ -47,7 +47,6 @@ public class ReceiptController {
         return receiptService.getReceipts()
                 .stream()
                 .map(this::mapToResponse)
-//                .map(article -> mapToResponse(article))
                 .collect(Collectors.toList());
     }
 

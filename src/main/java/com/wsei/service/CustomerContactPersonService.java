@@ -15,16 +15,16 @@ import java.util.List;
 public class CustomerContactPersonService {
     private final CustomerContactPersonRepository repository;
 
-    public List<CustomerContactPerson> getCustomerContactPersons(){
+    public List<CustomerContactPerson> getCustomerContactPersons() {
         return repository.findAll();
     }
 
-    public CustomerContactPerson getCustomerContantPerson(@PathVariable Long id){
+    public CustomerContactPerson getCustomerContantPerson(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public CustomerContactPerson saveCustomerContactPerson(CustomerContactPerson customerContactPerson){
+    public CustomerContactPerson saveCustomerContactPerson(CustomerContactPerson customerContactPerson) {
         repository.findByName(customerContactPerson.getName())
                 .ifPresent(existingCustomerContactPerson -> {
                     throw new AlreadyExistException();
@@ -33,10 +33,9 @@ public class CustomerContactPersonService {
         return repository.save(customerContactPerson);
     }
 
-    public CustomerContactPerson updateCustomerContactPerson(CustomerContactPerson newCustomerContactPerson, Long id)
-    {
+    public CustomerContactPerson updateCustomerContactPerson(CustomerContactPerson newCustomerContactPerson, Long id) {
         return repository.findById(id)
-                .map (customerContactPerson -> {
+                .map(customerContactPerson -> {
                     customerContactPerson.setName(newCustomerContactPerson.getName());
                     customerContactPerson.setSurname(newCustomerContactPerson.getSurname());
                     customerContactPerson.setEmail(newCustomerContactPerson.getEmail());
@@ -46,8 +45,7 @@ public class CustomerContactPersonService {
                 .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public void deleteCustomerContactPerson(@PathVariable Long id)
-    {
+    public void deleteCustomerContactPerson(@PathVariable Long id) {
         repository.deleteById(id);
     }
 }
