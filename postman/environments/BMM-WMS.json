@@ -1,0 +1,2297 @@
+{
+	"info": {
+		"_postman_id": "d26d68b8-83c9-4c53-a7b7-d97810565ada",
+		"name": "BMM-WMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18129145"
+	},
+	"item": [
+		{
+			"name": "User Access Management",
+			"item": [
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "Add User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"postmantest2@test.com\",\r\n  \"password\": \"aqqaqq\",\r\n  \"name\": \"postmanname\",\r\n  \"surname\": \"postmanesurname\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/users",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add User2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"postmantest211414@test.com\",\r\n  \"password\": \"aqqaqq\",\r\n  \"name\": \"postmanname234\",\r\n  \"surname\": \"pmsurname234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/users",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Users",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/users",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"admin@bmm-wms.pl\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/users/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/users/3",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"users",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles",
+					"item": [
+						{
+							"name": "Get All Roles",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/roles",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Role to User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"postmantest2@test.com\",\r\n    \"roleName\": \"Manager\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/roles/add-to-user",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"roles",
+										"add-to-user"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tokens",
+					"item": [
+						{
+							"name": "Login - Access Token",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "admin@bmm-wms.pl",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "Admin123!",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "app:8080/api/login",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Articles",
+					"item": [
+						{
+							"name": "Add Article",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"TV\",\r\n  \"weight\": 55.00,\r\n  \"articleCode\": \"987314\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/articles",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Articles",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/articles",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Article",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/articles/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Unit to Article",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"unitName\": \"kg\",\r\n  \"articleCode\": \"987314\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/articles/add-unit-to-article",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articles",
+										"add-unit-to-article"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Article",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"TVput\",\r\n  \"weight\": 55.00,\r\n  \"articleCode\": \"987314\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/articles/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Article",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/articles/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"articles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Units",
+					"item": [
+						{
+							"name": "Get All Units",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/units",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"units"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Unit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/units/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"units",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Counterparties",
+			"item": [
+				{
+					"name": "CustomerContactPerson",
+					"item": [
+						{
+							"name": "Add CustomerContactPerson",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"CCPpostman\",\r\n  \"surname\": \"CCPsurpostman\",\r\n  \"email\": \"CCPpostman@test.com\",\r\n  \"phoneNumber\": \"999888777\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/customerContactPersons",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customerContactPersons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add CustomerContactPerson2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"CCPpostman2\",\r\n  \"surname\": \"CCPsurpostman2\",\r\n  \"email\": \"CCPpostman@test.com2\",\r\n  \"phoneNumber\": \"999888773\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/customerContactPersons",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customerContactPersons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All CustomerContactPersons",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/customerContactPersons",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customerContactPersons"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get CustomerContactPerson",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/customerContactPersons/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customerContactPersons",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update CustomerContactPerson",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"CCPpostmanPUT\",\r\n  \"surname\": \"CC2surpostman\",\r\n  \"email\": \"CCPpostman@test.com\",\r\n  \"phoneNumber\": \"999888777\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/customerContactPersons/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customerContactPersons",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete CustomerContactPerson",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/customerContactPersons/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customerContactPersons",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customer",
+					"item": [
+						{
+							"name": "Add Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"PMname\",\r\n    \"street\": \"PMstreet\",\r\n    \"city\": \"PMcity\",\r\n    \"postalCode\": \"PMpcode\",\r\n    \"country\": \"PMcountry\",\r\n    \"email\": \"PMemail@customers.com\",\r\n    \"phoneNumber\": \"111222333\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/customers",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Customers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/customers",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/customers/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add CustomerContactPerson to Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customerId\": 1,\r\n  \"customerContactPersonId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/customers/add-customer-contact-person-to-customer",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"add-customer-contact-person-to-customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"PMnamePUT\",\r\n    \"street\": \"PMstreetPUT\",\r\n    \"city\": \"PMcityPUT\",\r\n    \"postalCode\": \"PMpcodePUT\",\r\n    \"country\": \"PMcountryPUT\",\r\n    \"email\": \"PMemailPUT@customers.com\",\r\n    \"phoneNumber\": \"PUT222333\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/customers/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Customer",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/customers/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"customers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Warehouses",
+			"item": [
+				{
+					"name": "Warehouses",
+					"item": [
+						{
+							"name": "Add Warehouse",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Cracow 01\",\r\n  \"displayName\": \"CR001\",\r\n  \"capacity\": 100000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/warehouses",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"warehouses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Warehouse2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Cracow 02\",\r\n  \"displayName\": \"CR002\",\r\n  \"capacity\": 100000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/warehouses",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"warehouses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Warehouses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/warehouses",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"warehouses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Warehouse",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/warehouses/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"warehouses",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Warehouse",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Cracow 03\",\r\n  \"displayName\": \"CR003\",\r\n  \"capacity\": 500000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/warehouses/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"warehouses",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Warehouse",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/warehouses/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"warehouses",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Rows",
+					"item": [
+						{
+							"name": "Add Row",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 1000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/rows",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Row2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"B\",\r\n  \"capacity\": 2000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/rows",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Rows",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/rows",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Row",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/rows/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Row",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 5000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/rows/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Warehouse to Row",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resourceId\": 1,\r\n  \"warehouseId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/rows/add-warehouse-to-row",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows",
+										"add-warehouse-to-row"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Row",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/rows/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Racks",
+					"item": [
+						{
+							"name": "Add Rack",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"A\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 1000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/racks",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"racks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Rack2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Body matches string\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"B\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"B\",\r\n  \"capacity\": 1000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/racks",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"racks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Racks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/racks",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"racks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Rack",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/racks/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"racks",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Rack",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 9900.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/racks/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"racks",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Warehouse to Rack",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resourceId\": 1,\r\n  \"warehouseId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/rows/add-warehouse-to-rack",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows",
+										"add-warehouse-to-rack"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Row to Rack",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resourceId\": 1,\r\n  \"rowId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/rows/add-row-to-rack",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"rows",
+										"add-row-to-rack"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Row",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/racks/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"racks",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Levels",
+					"item": [
+						{
+							"name": "Add Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 1000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/levels",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Level2",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 1000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/levels",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Levels",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/levels",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/levels/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Warehouse to Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resourceId\": 1,\r\n  \"warehouseId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/levels/add-warehouse-to-level",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels",
+										"add-warehouse-to-level"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Row to Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resourceId\": 1,\r\n  \"rowId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/levels/add-row-to-level",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels",
+										"add-row-to-level"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Rack to Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"resourceId\": 1,\r\n  \"rackId\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/levels/add-rack-to-level",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels",
+										"add-rack-to-level"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"A\",\r\n  \"capacity\": 5500.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "app:8080/api/levels/1",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Level",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "app:8080/api/levels/2",
+									"host": [
+										"app"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"levels",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBibW0td21zLnBsIiwicm9sZXMiOlsiTWFuYWdlciJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXBpL2xvZ2luIiwiZXhwIjoxNjYzNDU2MDgyfQ.wj6Jtlsb4zBvOmnpAgVAmdWQHny8zbxIMdeN5UG6KHo",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

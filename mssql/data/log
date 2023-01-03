@@ -1,0 +1,105 @@
+Changed database context to 'master'.
+Msg 3702, Level 16, State 4, Server 0766a258d9ea, Line 2
+Cannot drop database "WMSDatabase" because it is currently in use.
+Msg 1801, Level 16, State 3, Server 0766a258d9ea, Line 1
+Database 'WMSDatabase' already exists. Choose a different database name.
+Changed database context to 'WMSDatabase'.
+Msg 3729, Level 16, State 1, Server 0766a258d9ea, Line 1
+Cannot drop schema 'UAM' because it is being referenced by object 'FK_UsersRoles'.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'UAM' in the database.
+Msg 2759, Level 16, State 1, Server 0766a258d9ea, Line 1
+CREATE SCHEMA failed due to previous errors.
+Msg 3726, Level 16, State 1, Server 0766a258d9ea, Line 3
+Could not drop object 'UAM.Users' because it is referenced by a FOREIGN KEY constraint.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Users' in the database.
+Msg 3726, Level 16, State 1, Server 0766a258d9ea, Line 1
+Could not drop object 'UAM.Roles' because it is referenced by a FOREIGN KEY constraint.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Roles' in the database.
+Msg 2714, Level 16, State 5, Server 0766a258d9ea, Line 2
+There is already an object named 'FK_UsersRoles' in the database.
+Msg 1750, Level 16, State 1, Server 0766a258d9ea, Line 2
+Could not create constraint or index. See previous errors.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Products' in the database.
+Msg 2759, Level 16, State 1, Server 0766a258d9ea, Line 1
+CREATE SCHEMA failed due to previous errors.
+Msg 3726, Level 16, State 1, Server 0766a258d9ea, Line 1
+Could not drop object 'Products.Units' because it is referenced by a FOREIGN KEY constraint.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Units' in the database.
+Msg 3726, Level 16, State 1, Server 0766a258d9ea, Line 1
+Could not drop object 'Products.Articles' because it is referenced by a FOREIGN KEY constraint.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Articles' in the database.
+Msg 2714, Level 16, State 5, Server 0766a258d9ea, Line 1
+There is already an object named 'FK_ArticlesUnits' in the database.
+Msg 1750, Level 16, State 1, Server 0766a258d9ea, Line 1
+Could not create constraint or index. See previous errors.
+Msg 3729, Level 16, State 1, Server 0766a258d9ea, Line 2
+Cannot drop schema 'Operations' because it is being referenced by object 'FK_MovementElementsArticles'.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Operations' in the database.
+Msg 2759, Level 16, State 1, Server 0766a258d9ea, Line 1
+CREATE SCHEMA failed due to previous errors.
+Msg 3729, Level 16, State 1, Server 0766a258d9ea, Line 2
+Cannot drop schema 'Counterparties' because it is being referenced by object 'Customers'.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Counterparties' in the database.
+Msg 2759, Level 16, State 1, Server 0766a258d9ea, Line 1
+CREATE SCHEMA failed due to previous errors.
+Msg 3729, Level 16, State 1, Server 0766a258d9ea, Line 2
+Cannot drop schema 'Warehouses' because it is being referenced by object 'FK_LevelsRacks'.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Warehouses' in the database.
+Msg 2759, Level 16, State 1, Server 0766a258d9ea, Line 1
+CREATE SCHEMA failed due to previous errors.
+Msg 3726, Level 16, State 1, Server 0766a258d9ea, Line 2
+Could not drop object 'Warehouses.Warehouses' because it is referenced by a FOREIGN KEY constraint.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Warehouses' in the database.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Rows' in the database.
+Msg 2714, Level 16, State 5, Server 0766a258d9ea, Line 2
+There is already an object named 'FK_RowsWarehouses' in the database.
+Msg 1750, Level 16, State 1, Server 0766a258d9ea, Line 2
+Could not create constraint or index. See previous errors.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Racks' in the database.
+Msg 2714, Level 16, State 5, Server 0766a258d9ea, Line 1
+There is already an object named 'FK_RacksRows' in the database.
+Msg 1750, Level 16, State 1, Server 0766a258d9ea, Line 1
+Could not create constraint or index. See previous errors.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Levels' in the database.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Places' in the database.
+Msg 3726, Level 16, State 1, Server 0766a258d9ea, Line 2
+Could not drop object 'Warehouses.Localization' because it is referenced by a FOREIGN KEY constraint.
+Msg 2714, Level 16, State 6, Server 0766a258d9ea, Line 1
+There is already an object named 'Localization' in the database.
+Msg 2714, Level 16, State 5, Server 0766a258d9ea, Line 2
+There is already an object named 'FK_LocalizationPlaces' in the database.
+Msg 1750, Level 16, State 1, Server 0766a258d9ea, Line 2
+Could not create constraint or index. See previous errors.
+
+(1 rows affected)
+
+(1 rows affected)
+
+(1 rows affected)
+Msg 2627, Level 14, State 1, Server 0766a258d9ea, Line 5
+Violation of UNIQUE KEY constraint 'UQ__Users__F3DBC5724494A138'. Cannot insert duplicate key in object 'UAM.Users'. The duplicate key value is (admin@bmm-wms.pl).
+The statement has been terminated.
+
+(1 rows affected)
+
+(1 rows affected)
+
+(1 rows affected)
+
+(1 rows affected)
+
+(1 rows affected)

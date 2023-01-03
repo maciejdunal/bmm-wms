@@ -18,7 +18,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<String> handleNotFoundException(NotFoundException e){
-        return new ResponseEntity<>("Cannot found Entity with id" + e.getId(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("Cannot found Entity with id " + e.getId(), HttpStatus.NOT_FOUND);
     }
 
 /*    @ExceptionHandler(NotFoundException.class)

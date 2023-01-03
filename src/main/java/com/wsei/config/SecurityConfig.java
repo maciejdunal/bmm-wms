@@ -21,7 +21,7 @@ import java.util.List;
 
 import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
-@EnableWebMvc
+@EnableWebMvc //turn off to enable swagger api
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -58,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 
     }
+
 //z d, ddzialajcy login
 /*    @Bean
     public CorsConfigurationSource corsConfigurationSource(){

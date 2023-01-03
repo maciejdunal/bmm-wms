@@ -12,6 +12,7 @@ import com.wsei.model.Role;
 import com.wsei.model.User;
 import com.wsei.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -100,7 +101,7 @@ public class UserController {
     }
 
     @PreAuthorize("hasRole('Manager')")
-    @PutMapping("/roles/add-to-user")
+    @PatchMapping("/roles/add-to-user")
     public UserResponse updateUserRole(@RequestBody RoleUpdateRequest request){
         User user = userService.assignRole(request);
 

@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="BMM-WMS" tests="135" time="0.000">
+  <testsuite name="User Access Management / Users / Get All Users" id="204e6fe1-d759-49e1-a2f5-8f49b8e6d0cc" timestamp="2022-07-11T00:30:43.979Z" tests="1" failures="1" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="BmmWms">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: d26d68b8-83c9-4c53-a7b7-d97810565ada.]]>
+        <![CDATA[Collection name: BMM-WMS.]]>
+        <![CDATA[Request name: User Access Management / Users / Get All Users.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:1).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="User Access Management / Users / Get User" id="eabc6535-70b0-4a2b-8f87-60aedbf70f71" timestamp="2022-07-11T00:30:43.979Z" tests="2" failures="2" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="BmmWms">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: d26d68b8-83c9-4c53-a7b7-d97810565ada.]]>
+        <![CDATA[Collection name: BMM-WMS.]]>
+        <![CDATA[Request name: User Access Management / Users / Get User.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:2).]]>
+      </failure>
+    </testcase>
+    <testcase name="Body matches string" time="0.000" classname="BmmWms">
+      <failure type="AssertionFailure" message="the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: d26d68b8-83c9-4c53-a7b7-d97810565ada.]]>
+        <![CDATA[Collection name: BMM-WMS.]]>
+        <![CDATA[Request name: User Access Management / Users / Get User.]]>
+        <![CDATA[Test description: Body matches string.]]>
+        <![CDATA[Error message: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string.]]>
+        <![CDATA[Stacktrace: AssertionError: the given combination of arguments (undefined and string) is invalid for this assertion. You can use an array, a map, an object, a set, a string, or a weakset instead of a string
+   at Object.eval sandbox-script.js:2:2).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="User Access Management / Users / Add User" id="ff686274-5dfa-497c-ae8c-df914578599d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Users / Add User2" id="9469f7c5-a4ac-424e-994f-7657593c153f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Users / Update User" id="c002fb62-562d-4b52-9110-1c8355318401" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Users / Delete User" id="b0d8c4a3-e0df-4463-af9a-421d60e3c9a3" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Roles / Get All Roles" id="44e7e5af-f983-471f-8401-c7143199de6a" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Roles / Add Role to User" id="0f2d7dc5-023e-40c9-b825-1f2c99bf131b" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Tokens / Login - Access Token" id="a4e9a7b2-9300-4e58-b52e-c2b4b5e0925a" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="User Access Management / Tokens / Get refresh token" id="eec09d2e-1d49-4f38-97f1-f607e01f7078" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Articles / Get All Articles" id="50516281-552c-4d04-a848-6b02613603c8" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Articles / Get Article" id="6dc27a15-ce6a-4476-8470-3c322481101d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Articles / Add Article" id="84d86006-e5af-463d-9f37-156259fed1a4" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Articles / Add Unit to Article" id="f499a2e6-b9f4-43cd-b943-281d8d19dad1" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Articles / Update Article" id="25f62d65-3468-425d-af3d-a4b2d84c5393" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Articles / Delete Article" id="6bebb58f-dd69-464a-b458-66a10b5a52fa" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Units / Get All Units" id="77dc148b-e15e-4858-8e5e-b15252589819" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Products / Units / Get Unit" id="50885a73-f74c-4737-9662-2b8732ba332d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / Customer / Get All Customers" id="eecb70d6-8e7a-4e1e-922f-5d3c3b37f0ae" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / Customer / Get Customer" id="74d211e6-28f9-431c-b684-7f99b339bc0b" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / Customer / Add Customer" id="9150f722-96cf-469b-87aa-b2b470075562" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / Customer / Add CustomerContactPerson to Customer" id="bfd5e043-7f80-438e-a7d5-1f691341ed69" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / Customer / Update Customer" id="6d89a886-5cba-4311-8f15-92db92f2d017" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / Customer / Delete Customer" id="7fd28bbc-761c-4589-b2fe-3f6a54a83a96" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / CustomerContactPerson / Get All CustomerContactPersons" id="52793b8c-a46d-446a-bc9f-53c546288811" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / CustomerContactPerson / Get CustomerContactPerson" id="5f1f8ebf-ff7b-4b1d-b64e-dc3ac3eee65c" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / CustomerContactPerson / Add CustomerContactPerson" id="1f8d6fde-e64e-42a1-a152-b956a6b68cdc" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / CustomerContactPerson / Update CustomerContactPerson" id="46ae22a3-6997-441e-86bc-3efb8d730027" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Counterparties / CustomerContactPerson / Delete CustomerContactPerson" id="a8db171f-1c51-429d-8b2c-914107e6cfae" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Warehouses / Get All Warehouses" id="47c0e653-7168-4c22-82fa-0dbf378e667e" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Warehouses / Get Warehouse" id="8360d06d-8e79-48b6-b901-903937a1b663" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Warehouses / Add Warehouse" id="64fe8980-1ee8-4566-a444-059451a9a736" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Warehouses / Update Warehouse" id="727bb754-100e-4888-930f-5878ac1aee0d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Warehouses / Delete Warehouse" id="2a3a3d19-94dc-49c3-90de-f44268ea16d6" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Rows / Get All Rows" id="637f5b39-7f61-4ccf-bcff-35eacec4ff55" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Rows / Get Row" id="753146a4-ad37-47da-aacb-6928f70ca257" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Rows / Add Row" id="09ace454-3546-465c-8f67-93e5f3aedbde" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Rows / Update Row" id="07014dc2-5681-453f-8856-31a512e05534" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Rows / Add Warehouse to Row" id="f206df96-70ba-448a-b04c-98663b355d2a" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Rows / Delete Row" id="a4949165-32a7-4ea0-a1c7-3eddb4bb9be5" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Get All Racks" id="2892ba8f-1ac7-4c8e-babc-409eb6c9c420" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Get Rack" id="a48896d9-4d0e-473c-99ca-8e0a05e49b44" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Add Rack" id="615a6aa8-0dd3-4eca-bbb8-69aaf336540e" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Update Rack" id="17114484-c7bf-41bc-9638-6209f210b950" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Add Warehouse to Rack" id="28c1b516-b88b-4f9a-9d4c-519ca26a0a44" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Add Row to Rack" id="1f3c483a-5b8a-4edc-9745-e9c02ab68aa8" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Racks / Delete Row" id="a5a949f4-4882-41fe-80e1-bcdc5455defb" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Get All Levels" id="36b28f38-cd5e-4d31-b015-95c7a0995f70" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Get Level" id="eb170b59-b2e3-4217-af20-d9768d01440d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Add Level" id="24de2b1c-87f2-4dd6-bcd2-746d37c08823" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Add Warehouse to Level" id="01dd4b8a-935d-4da1-8c87-49ada368274e" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Add Row to Level" id="97c0d77d-42fb-46b7-8bcd-9776066a745c" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Add Rack to Level" id="fd347bfc-eee7-4603-963d-f9f6ffa424de" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Update Level" id="75a87bb8-2af5-448f-b3f9-2941b2c0270f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Levels / Delete Level" id="4e6aabc3-dff2-4306-8da3-c141863996ef" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Get All Places" id="c3f361f8-6a2e-4d66-9440-3427ff96361b" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Get Place" id="94e681ca-e1d4-40a7-b288-e5db72d93b8d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Add Place" id="64dad306-0253-4a6f-8e1e-420994aac92b" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Add Warehouse to Place" id="7dce3d40-e275-4ef5-90b9-9241b80335ec" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Add Row to Place" id="462c1f73-ce95-4203-95d8-2ae80decf22a" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Add Rack to Place" id="a42904f9-0c9e-4ee7-ae1e-15e6fd6de7bf" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Add Level to Place" id="b0a3244b-921f-490d-9cd5-bba9bb51f439" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Update Place" id="92332776-1a74-4077-89f1-99298e3594fa" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Places / Delete Place" id="64ffc8c1-7a1c-4329-9d52-7854347ee976" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Get All Localizations" id="428ee111-2571-48f9-9ce4-252915751fff" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Get All LocalizationsByWarehouseId" id="763a8620-0203-45f0-a563-169454a7093f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Get Localization" id="79258ecc-4ab5-4dfc-b9c6-fb1393ada332" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Add Localization" id="ae3efa57-a6a9-462b-8730-bb56a26a509f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Update Localization" id="841e74be-894f-4a1d-a55f-7a70da9e283f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Add Warehouse to Localization" id="c9fa7261-7d24-4674-9e35-1f0020b80b95" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Add Place to Localization" id="3102f71f-a5ba-46d6-bb86-5947f5b1e7ce" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / Localizations / Delete Localization" id="87b71390-fd37-49c2-96cf-7f3c3c0055f4" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Get All LocalizationResources" id="cbce03b4-b893-4785-bd8b-e92d112b2d20" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Get LocalizationResource" id="8aae0c20-778e-4823-9788-8285d541f0a1" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Add LocalizationResource" id="730524cb-36ec-43cb-bca4-369d10a74754" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Add Warehouse to LocalizationResource" id="cba13968-e45d-4102-b5e2-be99271821e3" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Add Article to LocalizationResource" id="9b91ef41-0bd9-4915-861d-74d0d202a33d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Add Localization to LocalizationResource" id="7b570400-6575-4609-bb1e-b1577a9983a7" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Update LocalizationResource" id="291d4e2a-2e53-406a-a863-b085862a4ea3" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Warehouses / LocalizationResources / Delete LocalizationResources" id="5eb8a0bd-ca82-46d5-95ab-183a3369a947" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Get All Receipts" id="472fa863-ab3e-4e7e-aa5e-de6621c06963" timestamp="2022-07-11T00:30:43.979Z" tests="1" failures="1" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+    <testcase name="Status code is 200" time="0.000" classname="BmmWms">
+      <failure type="AssertionFailure" message="expected { Object (id, _details, ...) } to have property 'code'">
+        <![CDATA[Failed 1 times.]]>
+        <![CDATA[Collection JSON ID: d26d68b8-83c9-4c53-a7b7-d97810565ada.]]>
+        <![CDATA[Collection name: BMM-WMS.]]>
+        <![CDATA[Request name: Operations / Receipts / Get All Receipts.]]>
+        <![CDATA[Test description: Status code is 200.]]>
+        <![CDATA[Error message: expected { Object (id, _details, ...) } to have property 'code'.]]>
+        <![CDATA[Stacktrace: AssertionError: expected { Object (id, _details, ...) } to have property 'code'
+   at Object.eval sandbox-script.js:1:81).]]>
+      </failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Get Receipts" id="a205d54b-6eb1-44e3-8538-12ab148bfda2" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Add Receipts" id="689ccedf-7540-4ea0-a2c8-813da654cfa8" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Add Warehouse to Receipt" id="57d24dbd-3738-4f06-b06c-6ea91c4be233" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Add Customer to Receipt" id="c13b8b5f-0c91-4bed-bc74-956b8910b7e3" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Update Receipt" id="d4d7a71b-cf0b-4f32-909b-276f4ec732f9" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Receipts / Delete Receipt" id="ad1b8f97-004d-4734-9ba8-cea5a5467a96" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Get All Releases" id="0ebc740b-bf82-4414-91a0-2b8f4d1a1bd6" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Get Release" id="12235de0-e552-4d27-bc35-0907a1aa74f3" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Add Release" id="1e0f74c1-45df-4222-8b22-19436eeac038" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Add Warehouse to Release" id="0edd885f-d32f-460b-8931-c71a4f5c850b" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Add Customer to Release" id="86e17450-454b-4462-8a3e-2273dfb61966" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Update Release" id="97c14288-90de-4442-b667-620d3914caf1" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Releases / Delete Release" id="9e37d203-c008-40b3-b431-85c793f823ff" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Get All Movements" id="f07bdc4a-4e43-4a89-bc67-12fbd8c39a2a" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Get Movement" id="00a459ba-d42e-4689-a0d9-3e4716cb7b4f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Add Movement" id="55b3f45c-4265-48c0-ae74-081844a167ba" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Add Warehouse to Movement" id="201efefb-a747-4b6c-bc8d-5a70ee653bac" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Add TargetWarehouse to Movement" id="9bdf4ff9-ace7-4ac9-af74-3e095ddb8e42" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Add Customer to Movement" id="9660d5fc-2e41-4df1-870f-a9b993907554" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Update Movement" id="3dbc5fb7-52ac-42a5-a919-b4491e5f567a" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Movements / Delete Movement" id="0dd22c66-3246-4698-acbb-464f0ce05d38" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Get All MovementElements" id="8a3ee416-250c-4cb5-92a1-23b411736847" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 0.0.0.0:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Get All MovementElementsByOperationId" id="3228ed93-6312-48c5-bda5-bd94646b3fe8" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 0.0.0.0:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Get MovementElement" id="81f2c95a-9383-466e-9c9b-f7d10ffc8683" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add MovementElement" id="7f5c2b8c-4ce1-43f4-bf4a-05da3bc5518e" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add OperationId to MovementElement" id="fcc26ea9-045c-4972-8925-45f99776617d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add Warehouse to MovementElement" id="f858b61d-6b40-4b9d-baf0-5df31278d72f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add TargetWarehouse to MovementElement" id="cf0491de-ed91-4a82-9901-5be5a7198c65" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add Localization to MovementElement" id="3779ab26-2f69-4a49-86d0-4a3734630793" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add targetLocalization to MovementElement" id="397c8f8c-792c-41ce-9cd0-8403a39c454c" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Add Article to MovementElement" id="53a6d57d-dbd4-46b5-ba79-6a1e4e163b3f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Update MovementElement" id="6fc18bd3-4305-41a2-9f7c-19a894fc549d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / MovementElements / Delete MovementElement" id="45af66e9-8601-44c6-bbb0-bcd924c5746b" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Get All ReleaseElements" id="49b1ef85-8498-43a7-b052-e448045aceeb" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 0.0.0.0:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Get All ReleaseElementsByOperationId" id="6c5c9b4f-edfb-4cda-9765-da3ed7132e56" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 0.0.0.0:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Get ReleaseElement" id="de3e71cf-be34-4688-a158-13dc191d87f5" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Add ReleaseElement" id="53dd0de0-f848-43df-b039-5223998751bd" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Add OperationId to ReleaseElement" id="b295bc41-5bf2-43ff-a3cc-ec10450acd54" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Add Warehouse to ReleaseElement" id="4d7d6174-1f33-4a5b-8409-d8084ad46840" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Add Localization to ReleaseElement" id="ddfb14c4-4d98-466d-a2e2-3c015a0865a1" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Add Article to ReleaseElement" id="0f7bf846-9afd-46ec-a66e-a11e38fb06eb" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Update ReleaseElement" id="72c94ba1-f573-40b0-bc92-6f6992e9bea9" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReleaseElements / Delete ReleaseElement" id="da30d0c7-bb7e-41cd-b703-321358cb635d" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Get All ReceiptElements" id="471f3048-79cb-4b91-857f-1132275bb01f" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 0.0.0.0:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Get All ReceiptElementsByOperationId Copy" id="91c33b4e-8ef7-4fc4-98e4-be83ed6787a6" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 0.0.0.0:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Get ReceiptElement" id="0c4652d3-4657-4fff-9824-187ec1c81e89" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Add ReceiptElement" id="a2a24d1a-bbf1-4df0-90de-7dce805c0d96" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Add OperationId to ReceiptElement" id="f1102bd6-347e-4b76-9ff9-0f1d35e7f110" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Add Warehouse to ReceiptElement" id="9232f462-9bca-40ea-b0c6-c4a1c6fa72cf" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Add Localization to ReceiptElement" id="5956d2dc-ef71-4334-8729-76612e96b54e" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Add Article to ReceiptElement" id="6283d921-89c3-49d2-8c33-f12b75852fd4" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Update ReceiptElement" id="2c4df3e9-1382-4a93-94ab-b19836509be8" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / ReceiptElements / Delete ReceiptElement" id="365fbe81-e3e7-41bb-8af2-af4dd764e2bf" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+  <testsuite name="Operations / Get OperationsAudit" id="a19c3bfd-0be7-41ea-9cb2-592575efe866" timestamp="2022-07-11T00:30:43.979Z" tests="0" failures="0" errors="1" time="0.000">
+    <system-err><![CDATA[Iteration: 0
+RequestError: Error: connect ECONNREFUSED 127.0.0.1:8080
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+
+---
+]]></system-err>
+  </testsuite>
+</testsuites>

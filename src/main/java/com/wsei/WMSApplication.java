@@ -2,6 +2,7 @@ package com.wsei;
 
 import com.wsei.model.Role;
 import com.wsei.model.User;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import com.wsei.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
+/*@EnableSwagger2*/
 public class WMSApplication {
     public static void main(String[] args) {
         SpringApplication.run(WMSApplication.class, args);
